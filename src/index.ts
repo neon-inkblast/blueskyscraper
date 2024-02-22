@@ -78,9 +78,9 @@ const scrape = async () => {
     // console.log(competitors);
 
 
-    requestedCompetitors.forEach(function(request){
+    requestedCompetitors.forEach(async function(request){
       if(!!competitors[request]){
-        let out = competitors[request].requestor(records);
+        let out = await competitors[request].requestor(records);
         console.log("********** output gathered ***************")
         console.log(out);
       }

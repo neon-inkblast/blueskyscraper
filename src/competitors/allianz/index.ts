@@ -1,6 +1,6 @@
 import axios from "axios";
 import { AllianzQuote } from "./types";
-import { extractQuoteInfo } from "../..";
+import { extractQuoteInfo } from "../../index";
 import { competitors } from "../../competitors";
 import { getCompetitorPrices } from "./APIRequest";
 
@@ -8,14 +8,31 @@ import { getCompetitorPrices } from "./APIRequest";
 
 export const ALLIANZ = {
   requiresAuth: true,
-  requestor: function(records){
-    console.log("ha");
-    // getCompetitorPrices(records);
-    return getCompetitorPrices(records);
-    // return {
-    //   "yo":"yo"
-    // }
+  requestor: async function(records){
+    console.log("** getCompetitorPrices **");
+    let out = await getCompetitorPrices(records);
 
+
+    // /*
+    //   Create mock data
+    // */
+    // let skip = true;
+    // records.forEach(async function(row){
+    //   if(skip){
+    //     skip = false;
+    //   }else{
+    //     console.log("ALLIANZ.inputAdapter(row)");  
+          
+    //     records[row] = await getCompetitorPrices(row);
+    //   }
+      
+    // })
+
+    console.log("out");
+    console.log(out);
+
+
+    return out//{};//getCompetitorPrices(records);
   },
   endpoints: {
     auth: {

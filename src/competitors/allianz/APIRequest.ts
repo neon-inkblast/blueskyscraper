@@ -9,7 +9,8 @@ const defaultHeaders = {
   "User-Agent":
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
 };
-export async function getCompetitorPrices(records: any[]) {
+export async function getCompetitorPrices(record: any[]) {
+
   const competitorScrapePromises = Object.entries(competitors).map(async ([k, v]) => {
     console.log("processing competitor: ", k);
     if (v.requiresAuth) {
@@ -36,19 +37,23 @@ export async function getCompetitorPrices(records: any[]) {
       // uncomment this loop to run once for each record instead of just once with dummy data
       // records.forEach(async (record: any) => {
       try {
-        const quoteRequestBody = v.inputAdapter({});
+        const quoteRequestBody = v.inputAdapter(record);
         const quote = await axios.post(v.endpoints.quote.url, quoteRequestBody, {
           headers: { ...defaultHeaders, Authorization: `Bearer ${token}` },
         });
         const prices = v.quoteAdapter(quote.data as AllianzQuote);
         console.log(prices);
+        Promise.resolve(prices);
       } catch (e) {
-        console.error("quote error:", e, "for record", records);
+        console.error("quote error:", e, "for record", record);
       }
       // });
     }
   });
-  await Promise.allSettled(competitorScrapePromises);
+  await Promise.allSettled(competitorScrapePromises).then(function(data){
+  	console.log("..");
+  	console.log(data);
+  });
 }
 
 
