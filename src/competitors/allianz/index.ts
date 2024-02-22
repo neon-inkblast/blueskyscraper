@@ -1,5 +1,14 @@
 import { AllianzQuote } from "./types";
-import { extractQuoteInfo } from "../..";
+
+export const countryCodeMap: Record<string, string> = {
+  Indonesia: "IDN",
+  Philippines: "PHL",
+  Turkey: "TUR",
+  "United Arab Emirates": "ARE",
+  "Sri Lanka": "LKA",
+  USA: "USA",
+  France: "FRA",
+};
 
 export const ALLIANZ = {
   requiresAuth: true,
@@ -28,6 +37,7 @@ export const ALLIANZ = {
     },
   },
   authTokenAdapter: allianzAuthAdapter,
+  // @fiona
   inputAdapter: allianzQuoteInputAdapter,
   quoteAdapter: allianzQuoteOutputAdapter,
 };
@@ -36,13 +46,19 @@ function allianzAuthAdapter(input: any) {
   return input.data.properties.accessToken;
 }
 
-function allianzQuoteInputAdapter(input: any) {
-  const quoteInfo = extractQuoteInfo(input);
+function allianzQuoteInputAdapter(record: any[]) {
+  // convert CSV row to Allianz quote input
+  const curDate = new Date();
+  const leadTime = record[5];
+  const duration = record[4];
+  const startDate = new Date(curDate.getTime() + leadTime * 24 * 60 * 60 * 1000);
+  const endDate = new Date(startDate.getTime() + duration * 24 * 60 * 60 * 1000);
+
   return {
-    destinationIds: [quoteInfo.destinationIds],
-    startDate: quoteInfo.startDate,
-    endDate: quoteInfo.endDate,
-    ageOfAdults: quoteInfo.ageOfAdults,
+    destinationIds: [countryCodeMap[record[3]]],
+    startDate,
+    endDate,
+    ageOfAdults: [record[1], record[2]],
     ageOfDependants: [],
     answeredQuestions: [{ id: "RESID", answer: { id: "Y" } }],
   };
