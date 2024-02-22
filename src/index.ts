@@ -19,6 +19,7 @@ const defaultHeaders = {
 async function getCompetitorPrices(records: any[]) {
   const competitorScrapePromises = Object.entries(competitors).map(async ([k, v]) => {
     console.log("processing competitor: ", k);
+    let quoteHeaders: Record<string, string> = { ...defaultHeaders };
     if (v.requiresAuth) {
       let token: string;
       try {
@@ -26,29 +27,32 @@ async function getCompetitorPrices(records: any[]) {
           headers: { ...defaultHeaders },
         });
         token = v.authTokenAdapter(authResult);
+
+        if (!token) {
+          throw Error("Missing auth token!");
+        }
+
+        quoteHeaders = { ...quoteHeaders, Authorization: `Bearer ${token}` };
       } catch (e) {
         console.error("auth error:", e);
         throw e;
       }
-
-      if (!token) {
-        throw Error("Missing auth token!");
-      }
-
-      // remove slice from this loop to run once for each record instead of just one row
-      records.slice(1, 2).forEach(async (record: any) => {
-        try {
-          const quoteRequestBody = v.inputAdapter(record);
-          const quote = await axios.post(v.endpoints.quote.url, quoteRequestBody, {
-            headers: { ...defaultHeaders, Authorization: `Bearer ${token}` },
-          });
-          const prices = v.quoteAdapter(quote.data as AllianzQuote);
-          console.log(prices);
-        } catch (e) {
-          console.error("quote error:", e, "for record", record);
-        }
-      });
     }
+
+    // remove slice from this loop to run once for each record instead of just one row
+    const quotePromises = records.slice(1, 2).map(async (record: any) => {
+      try {
+        const quoteRequestBody = v.inputAdapter(record);
+        const quote = await axios.post(v.endpoints.quote.url, quoteRequestBody, {
+          headers: quoteHeaders,
+        });
+        const prices = v.quoteAdapter(quote.data as AllianzQuote);
+        console.log(prices);
+      } catch (e) {
+        console.error("quote error:", e, "for record", record);
+      }
+    });
+    await Promise.allSettled(quotePromises);
   });
   await Promise.allSettled(competitorScrapePromises);
 }

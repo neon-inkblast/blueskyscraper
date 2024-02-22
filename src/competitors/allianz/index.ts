@@ -66,6 +66,9 @@ function allianzQuoteInputAdapter(record: any[]) {
 
 function allianzQuoteOutputAdapter(input: AllianzQuote) {
   return input.entities[0].entities.map((entity) => {
-    return entity.properties.price.sellingPrice;
+    const price = entity.properties.price.sellingPrice;
+    const plan = entity.properties.planName;
+    // const coverPeriod = entity.properties.coverPeriod;
+    return { price, plan };
   });
 }
