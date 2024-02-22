@@ -13,20 +13,7 @@ export const ALLIANZ = {
     let out = await getCompetitorPrices(records);
 
 
-    // /*
-    //   Create mock data
-    // */
-    // let skip = true;
-    // records.forEach(async function(row){
-    //   if(skip){
-    //     skip = false;
-    //   }else{
-    //     console.log("ALLIANZ.inputAdapter(row)");  
-          
-    //     records[row] = await getCompetitorPrices(row);
-    //   }
-      
-    // })
+
 
     console.log("out");
     console.log(out);
