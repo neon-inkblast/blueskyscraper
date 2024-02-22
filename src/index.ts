@@ -1,28 +1,12 @@
-import fs from "node:fs";
-import path from "node:path";
-import { parse } from "csv-parse";
-// Note, the `stream/promises` module is only available
-// starting with Node.js version 16
-import { finished } from "stream/promises";
+import { processFile } from "./readInput";
+import { writeOutput } from "./writeOutput";
 
-const inputPath = path.join(__dirname, "input", "input.csv");
-const processFile = async () => {
-  const records: any[] = [];
-  const parser = fs.createReadStream(inputPath).pipe(
-    parse({
-      // CSV options if any
-    }),
-  );
-  parser.on("readable", function () {
-    let record;
-    while ((record = parser.read()) !== null) {
-      // Work with each record
-      records.push(record);
-    }
+const scrape = async () => {
+  const records = await processFile();
+  records.forEach((record) => {
+    console.log(record);
   });
-  await finished(parser);
-  console.log(records);
-  return records;
+  await writeOutput();
 };
-// Parse the CSV content
-processFile();
+
+scrape();

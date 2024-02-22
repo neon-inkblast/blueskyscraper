@@ -1,0 +1,1649 @@
+{
+  "class": ["quickQuoteResult"],
+  "properties": {
+    "disclaimers": [
+      {
+        "id": "PBD_SUB_LIMIT_PLAN",
+        "symbol": "*",
+        "description": "<p class=\"ap-default-row-content\">*Sub-limits apply; refer to the <strong>Policy Benefits</strong> section in the Product Disclosure Statement for details.</p><p> </p><p> </p>"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "class": ["collection", "plans"],
+      "entities": [
+        {
+          "class": ["plan", "BASIC"],
+          "properties": {
+            "planId": 62303,
+            "planName": "Basic",
+            "coverPeriod": {
+              "startDate": "2024-02-24T00:00:00Z",
+              "endDate": "2024-02-26T00:00:00Z",
+              "duration": 3,
+              "durationType": "Day"
+            },
+            "isPreExistingCoverAvailable": false,
+            "isDefault": false,
+            "promoCode": null,
+            "price": {
+              "sellingPrice": 113.85,
+              "totalPayable": 113.85,
+              "discountPrice": 0.0
+            },
+            "memberNumber": null
+          },
+          "entities": [
+            {
+              "class": ["coverLevel"],
+              "properties": {
+                "id": "BASIC",
+                "name": "Basic"
+              },
+              "rel": ["rel/coverLevel"]
+            },
+            {
+              "class": ["coverType"],
+              "properties": {
+                "id": "DUO",
+                "name": "Duo"
+              },
+              "rel": ["rel/coverType"]
+            },
+            {
+              "class": ["currency"],
+              "properties": {
+                "id": "AUD",
+                "name": "Australian Dollars"
+              },
+              "rel": ["rel/currency"]
+            },
+            {
+              "class": ["collection", "excesses"],
+              "entities": [
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 100.0,
+                    "displayValue": "$100",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/excess"]
+                },
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 200.0,
+                    "displayValue": "$200",
+                    "isDefault": true
+                  },
+                  "rel": ["rel/excess"]
+                },
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 500.0,
+                    "displayValue": "$500",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/excess"]
+                }
+              ],
+              "rel": ["rel/excesses"]
+            },
+            {
+              "class": ["collection", "cancellationAmounts"],
+              "entities": [
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 0.0,
+                    "displayValue": "Nil",
+                    "isDefault": true,
+                    "isUnlimited": false,
+                    "disclaimerIds": []
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                }
+              ],
+              "rel": ["rel/cancellationAmounts"]
+            },
+            {
+              "class": ["availableOptionPacks", "collection"],
+              "rel": ["rel/availableOptionPacks"]
+            }
+          ],
+          "title": "Plan",
+          "rel": ["rel/plan"]
+        },
+        {
+          "class": ["plan", "COMP"],
+          "properties": {
+            "planId": 62300,
+            "planName": "Comprehensive",
+            "coverPeriod": {
+              "startDate": "2024-02-24T00:00:00Z",
+              "endDate": "2024-02-26T00:00:00Z",
+              "duration": 3,
+              "durationType": "Day"
+            },
+            "isPreExistingCoverAvailable": true,
+            "isDefault": true,
+            "promoCode": null,
+            "price": {
+              "sellingPrice": 160.25,
+              "totalPayable": 160.25,
+              "discountPrice": 0.0
+            },
+            "memberNumber": null
+          },
+          "entities": [
+            {
+              "class": ["coverLevel"],
+              "properties": {
+                "id": "COMP",
+                "name": "Comprehensive"
+              },
+              "rel": ["rel/coverLevel"]
+            },
+            {
+              "class": ["coverType"],
+              "properties": {
+                "id": "DUO",
+                "name": "Duo"
+              },
+              "rel": ["rel/coverType"]
+            },
+            {
+              "class": ["currency"],
+              "properties": {
+                "id": "AUD",
+                "name": "Australian Dollars"
+              },
+              "rel": ["rel/currency"]
+            },
+            {
+              "class": ["collection", "excesses"],
+              "entities": [
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 100.0,
+                    "displayValue": "$100",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/excess"]
+                },
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 200.0,
+                    "displayValue": "$200",
+                    "isDefault": true
+                  },
+                  "rel": ["rel/excess"]
+                },
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 500.0,
+                    "displayValue": "$500",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/excess"]
+                }
+              ],
+              "rel": ["rel/excesses"]
+            },
+            {
+              "class": ["collection", "cancellationAmounts"],
+              "entities": [
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 2000.0,
+                    "displayValue": "$2,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 5000.0,
+                    "displayValue": "$5,000*",
+                    "isDefault": true,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 10000.0,
+                    "displayValue": "$10,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 20000.0,
+                    "displayValue": "$20,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 100000.0,
+                    "displayValue": "$100,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                }
+              ],
+              "rel": ["rel/cancellationAmounts"]
+            },
+            {
+              "class": ["availableOptionPacks", "collection"],
+              "entities": [
+                {
+                  "class": ["perPolicyOptionPack", "CRUIS"],
+                  "properties": {
+                    "id": "CRUIS",
+                    "groupId": "CRUIS",
+                    "valueType": "BOOLEAN",
+                    "indicativePrice": 21.56,
+                    "travellerValidation": {
+                      "isRequired": false,
+                      "isAdultOnly": false
+                    },
+                    "caps": null,
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": true,
+                        "isDefault": false
+                      },
+                      {
+                        "value": false,
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": true
+                  },
+                  "rel": ["rel/perPolicyOptionPack"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_ATQ"],
+                  "properties": {
+                    "id": "I_ATQ",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_CMR"],
+                  "properties": {
+                    "id": "I_CMR",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "3750",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "4500",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_CMP"],
+                  "properties": {
+                    "id": "I_CMP",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_CPT"],
+                  "properties": {
+                    "id": "I_CPT",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "3750",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "4500",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_DVG"],
+                  "properties": {
+                    "id": "I_DVG",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_FRM"],
+                  "properties": {
+                    "id": "I_FRM",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_JWL"],
+                  "properties": {
+                    "id": "I_JWL",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "4500",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_MDA"],
+                  "properties": {
+                    "id": "I_MDA",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_MPH"],
+                  "properties": {
+                    "id": "I_MPH",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "2000",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "3000",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_MUS"],
+                  "properties": {
+                    "id": "I_MUS",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_PEL"],
+                  "properties": {
+                    "id": "I_PEL",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_PGL"],
+                  "properties": {
+                    "id": "I_PGL",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_WCH"],
+                  "properties": {
+                    "id": "I_WCH",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPersonOptionPack", "ADVNT"],
+                  "properties": {
+                    "options": [
+                      {
+                        "value": true,
+                        "isDefault": false
+                      },
+                      {
+                        "value": false,
+                        "isDefault": true
+                      }
+                    ],
+                    "isRequired": true,
+                    "eligibleTravellers": [
+                      {
+                        "index": 1
+                      },
+                      {
+                        "index": 2
+                      }
+                    ],
+                    "validation": {
+                      "minAge": 0,
+                      "maxAge": 74
+                    },
+                    "id": "ADVNT",
+                    "groupId": "ADVNT",
+                    "valueType": "BOOLEAN",
+                    "indicativePrice": 43.1,
+                    "travellerValidation": {
+                      "isRequired": false,
+                      "isAdultOnly": false
+                    },
+                    "caps": null,
+                    "benefitScope": "per person"
+                  },
+                  "rel": ["rel/perPersonOptionPack"]
+                },
+                {
+                  "class": ["perPersonOptionPack", "SNOWL"],
+                  "properties": {
+                    "options": [
+                      {
+                        "value": true,
+                        "isDefault": false
+                      },
+                      {
+                        "value": false,
+                        "isDefault": true
+                      }
+                    ],
+                    "isRequired": true,
+                    "eligibleTravellers": [
+                      {
+                        "index": 1
+                      },
+                      {
+                        "index": 2
+                      }
+                    ],
+                    "validation": {
+                      "minAge": 0,
+                      "maxAge": 74
+                    },
+                    "id": "SNOWL",
+                    "groupId": "SNOW",
+                    "valueType": "BOOLEAN",
+                    "indicativePrice": 136.2,
+                    "travellerValidation": {
+                      "isRequired": false,
+                      "isAdultOnly": false
+                    },
+                    "caps": null,
+                    "benefitScope": "per person"
+                  },
+                  "rel": ["rel/perPersonOptionPack"]
+                },
+                {
+                  "class": ["optionPackCap", "ITEM"],
+                  "properties": {
+                    "benefitScope": {
+                      "name": "per person",
+                      "id": "PerPerson"
+                    },
+                    "amount": 7000
+                  },
+                  "rel": ["rel/optionPackCap"]
+                }
+              ],
+              "rel": ["rel/availableOptionPacks"]
+            }
+          ],
+          "title": "Plan",
+          "rel": ["rel/plan"]
+        },
+        {
+          "class": ["plan", "MULTI"],
+          "properties": {
+            "planId": 62305,
+            "planName": "Multi-Trip",
+            "coverPeriod": {
+              "startDate": "2024-02-24T00:00:00Z",
+              "endDate": "2025-02-23T00:00:00Z",
+              "duration": 12,
+              "durationType": "Month"
+            },
+            "isPreExistingCoverAvailable": true,
+            "isDefault": false,
+            "promoCode": null,
+            "price": {
+              "sellingPrice": 725.79,
+              "totalPayable": 725.79,
+              "discountPrice": 0.0
+            },
+            "memberNumber": null
+          },
+          "entities": [
+            {
+              "class": ["coverLevel"],
+              "properties": {
+                "id": "MULTI",
+                "name": "Multi-Trip"
+              },
+              "rel": ["rel/coverLevel"]
+            },
+            {
+              "class": ["coverType"],
+              "properties": {
+                "id": "PPERS",
+                "name": "Per Person"
+              },
+              "rel": ["rel/coverType"]
+            },
+            {
+              "class": ["currency"],
+              "properties": {
+                "id": "AUD",
+                "name": "Australian Dollars"
+              },
+              "rel": ["rel/currency"]
+            },
+            {
+              "class": ["collection", "excesses"],
+              "entities": [
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 100.0,
+                    "displayValue": "$100",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/excess"]
+                },
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 200.0,
+                    "displayValue": "$200",
+                    "isDefault": true
+                  },
+                  "rel": ["rel/excess"]
+                },
+                {
+                  "class": ["excess"],
+                  "properties": {
+                    "value": 500.0,
+                    "displayValue": "$500",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/excess"]
+                }
+              ],
+              "rel": ["rel/excesses"]
+            },
+            {
+              "class": ["collection", "cancellationAmounts"],
+              "entities": [
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 2000.0,
+                    "displayValue": "$2,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 5000.0,
+                    "displayValue": "$5,000*",
+                    "isDefault": true,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 10000.0,
+                    "displayValue": "$10,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 20000.0,
+                    "displayValue": "$20,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                },
+                {
+                  "class": ["cancellationAmount"],
+                  "properties": {
+                    "value": 100000.0,
+                    "displayValue": "$100,000*",
+                    "isDefault": false,
+                    "isUnlimited": false,
+                    "disclaimerIds": ["PBD_SUB_LIMIT_PLAN"]
+                  },
+                  "rel": ["rel/cancellationAmount"]
+                }
+              ],
+              "rel": ["rel/cancellationAmounts"]
+            },
+            {
+              "class": ["collection", "maxTripDurations"],
+              "entities": [
+                {
+                  "class": ["maxTripDuration"],
+                  "properties": {
+                    "value": 15,
+                    "displayValue": "Up to 15 days",
+                    "isDefault": true
+                  },
+                  "rel": ["rel/maxTripDuration"]
+                },
+                {
+                  "class": ["maxTripDuration"],
+                  "properties": {
+                    "value": 30,
+                    "displayValue": "Up to 30 days",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/maxTripDuration"]
+                },
+                {
+                  "class": ["maxTripDuration"],
+                  "properties": {
+                    "value": 45,
+                    "displayValue": "Up to 45 days",
+                    "isDefault": false
+                  },
+                  "rel": ["rel/maxTripDuration"]
+                }
+              ],
+              "rel": ["rel/maxTripDurations"]
+            },
+            {
+              "class": ["availableOptionPacks", "collection"],
+              "entities": [
+                {
+                  "class": ["perPolicyOptionPack", "CRUIS"],
+                  "properties": {
+                    "id": "CRUIS",
+                    "groupId": "CRUIS",
+                    "valueType": "BOOLEAN",
+                    "indicativePrice": 89.63,
+                    "travellerValidation": {
+                      "isRequired": false,
+                      "isAdultOnly": false
+                    },
+                    "caps": null,
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": true,
+                        "isDefault": false
+                      },
+                      {
+                        "value": false,
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": true
+                  },
+                  "rel": ["rel/perPolicyOptionPack"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_ATQ"],
+                  "properties": {
+                    "id": "I_ATQ",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_CMR"],
+                  "properties": {
+                    "id": "I_CMR",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "3750",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "4500",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_CMP"],
+                  "properties": {
+                    "id": "I_CMP",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_CPT"],
+                  "properties": {
+                    "id": "I_CPT",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "3750",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "4500",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_DVG"],
+                  "properties": {
+                    "id": "I_DVG",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_FRM"],
+                  "properties": {
+                    "id": "I_FRM",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_JWL"],
+                  "properties": {
+                    "id": "I_JWL",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "4500",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_MDA"],
+                  "properties": {
+                    "id": "I_MDA",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_MPH"],
+                  "properties": {
+                    "id": "I_MPH",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "2000",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "3000",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_MUS"],
+                  "properties": {
+                    "id": "I_MUS",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_PEL"],
+                  "properties": {
+                    "id": "I_PEL",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_PGL"],
+                  "properties": {
+                    "id": "I_PGL",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPolicyOptionPack", "I_WCH"],
+                  "properties": {
+                    "id": "I_WCH",
+                    "groupId": "ITEM",
+                    "valueType": "CURRENCY",
+                    "indicativePrice": null,
+                    "travellerValidation": {
+                      "isRequired": true,
+                      "isAdultOnly": false
+                    },
+                    "caps": [
+                      {
+                        "id": "PerPerson"
+                      },
+                      {
+                        "id": "PerPolicy"
+                      }
+                    ],
+                    "benefitScope": "",
+                    "options": [
+                      {
+                        "value": "1500",
+                        "isDefault": false
+                      },
+                      {
+                        "value": "2250",
+                        "isDefault": false
+                      }
+                    ],
+                    "isRequired": false
+                  },
+                  "rel": ["rel/availableInsuredItem"]
+                },
+                {
+                  "class": ["perPersonOptionPack", "ADVNT"],
+                  "properties": {
+                    "options": [
+                      {
+                        "value": true,
+                        "isDefault": false
+                      },
+                      {
+                        "value": false,
+                        "isDefault": true
+                      }
+                    ],
+                    "isRequired": true,
+                    "eligibleTravellers": [
+                      {
+                        "index": 1
+                      },
+                      {
+                        "index": 2
+                      }
+                    ],
+                    "validation": {
+                      "minAge": 0,
+                      "maxAge": 74
+                    },
+                    "id": "ADVNT",
+                    "groupId": "ADVNT",
+                    "valueType": "BOOLEAN",
+                    "indicativePrice": 145.15,
+                    "travellerValidation": {
+                      "isRequired": false,
+                      "isAdultOnly": false
+                    },
+                    "caps": null,
+                    "benefitScope": "per person"
+                  },
+                  "rel": ["rel/perPersonOptionPack"]
+                },
+                {
+                  "class": ["perPersonOptionPack", "SNOWL"],
+                  "properties": {
+                    "options": [
+                      {
+                        "value": true,
+                        "isDefault": false
+                      },
+                      {
+                        "value": false,
+                        "isDefault": true
+                      }
+                    ],
+                    "isRequired": true,
+                    "eligibleTravellers": [
+                      {
+                        "index": 1
+                      },
+                      {
+                        "index": 2
+                      }
+                    ],
+                    "validation": {
+                      "minAge": 0,
+                      "maxAge": 74
+                    },
+                    "id": "SNOWL",
+                    "groupId": "SNOW",
+                    "valueType": "BOOLEAN",
+                    "indicativePrice": 399.17,
+                    "travellerValidation": {
+                      "isRequired": false,
+                      "isAdultOnly": false
+                    },
+                    "caps": null,
+                    "benefitScope": "per person"
+                  },
+                  "rel": ["rel/perPersonOptionPack"]
+                },
+                {
+                  "class": ["optionPackCap", "ITEM"],
+                  "properties": {
+                    "benefitScope": {
+                      "name": "per person",
+                      "id": "PerPerson"
+                    },
+                    "amount": 7000
+                  },
+                  "rel": ["rel/optionPackCap"]
+                },
+                {
+                  "class": ["optionPackCap", "ITEM"],
+                  "properties": {
+                    "benefitScope": {
+                      "name": "",
+                      "id": "PerPolicy"
+                    },
+                    "amount": 14000
+                  },
+                  "rel": ["rel/optionPackCap"]
+                }
+              ],
+              "rel": ["rel/availableOptionPacks"]
+            }
+          ],
+          "title": "Plan",
+          "rel": ["rel/plan"]
+        }
+      ],
+      "title": "Plans",
+      "rel": ["rel/plans"]
+    }
+  ],
+  "links": [
+    {
+      "rel": ["self"],
+      "href": "https://allianzassistancetravel.com.au/onex/api/quick-quote"
+    },
+    {
+      "rel": ["rel/planProperties"],
+      "href": "https://allianzassistancetravel.com.au/onex/api/plan/properties"
+    }
+  ],
+  "actions": [
+    {
+      "name": "fullQuoteProperties",
+      "class": ["fullQuoteProperties"],
+      "method": "POST",
+      "href": "https://allianzassistancetravel.com.au/onex/api/full-quote/properties",
+      "title": "Full Quote Properties Request",
+      "type": "fullQuoteProperties",
+      "fields": [
+        {
+          "name": "destinationIds",
+          "type": "string[]",
+          "title": "Destination Ids"
+        },
+        {
+          "name": "startDate",
+          "type": "datetime",
+          "title": "Start Date"
+        },
+        {
+          "name": "endDate",
+          "type": "datetime",
+          "title": "End Date"
+        },
+        {
+          "name": "planId",
+          "type": "number",
+          "title": "Plan Id"
+        },
+        {
+          "name": "coverLevel",
+          "type": "string",
+          "title": "Cover Level"
+        },
+        {
+          "name": "coverType",
+          "type": "string",
+          "title": "Cover Type"
+        },
+        {
+          "name": "maxTripDuration",
+          "type": "number",
+          "title": "Max Trip Duration"
+        },
+        {
+          "name": "adults",
+          "class": ["QuickQuoteAdult", "collection"],
+          "type": "text",
+          "title": "Adults"
+        },
+        {
+          "name": "dependants",
+          "class": ["QuickQuoteDependant", "collection"],
+          "type": "text",
+          "title": "Dependants"
+        },
+        {
+          "name": "answeredQuestions",
+          "class": ["AnsweredQuestion", "collection"],
+          "type": "text",
+          "title": "Answered Questions"
+        },
+        {
+          "name": "excess",
+          "type": "number",
+          "title": "Excess"
+        },
+        {
+          "name": "cancellationAmount",
+          "type": "number",
+          "title": "Cancellation Amount"
+        },
+        {
+          "name": "price",
+          "type": "number",
+          "title": "Price"
+        },
+        {
+          "name": "selectedOptionPacks",
+          "class": ["SelectedOptionPack", "collection"],
+          "type": "text",
+          "title": "Selected Option Packs"
+        },
+        {
+          "name": "currency",
+          "class": ["Currency"],
+          "type": "text",
+          "title": "Currency"
+        }
+      ]
+    }
+  ],
+  "rel": ["rel/quickQuoteResult"]
+}

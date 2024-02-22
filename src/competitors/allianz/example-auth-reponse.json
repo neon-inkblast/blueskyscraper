@@ -1,0 +1,49 @@
+{
+  "class": ["authenticationResult"],
+  "properties": {
+    "isAuthenticated": true,
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZGVudGl0eSI6IntcImNsaWVudFR5cGVcIjpcIkIyQ1dTXCIsXCJjbGllbnRJZFwiOjMwNCxcImJyYW5kQ29kZVwiOlwiQUxaQ1wiLFwicHJvdmlkZXJDb2RlXCI6XCJQU1hBTElBVVwiLFwiZGlzcGxheU5hbWVcIjpcIkFsbGlhbnogVHJhdmVsXCIsXCJmaWxlUHJlZml4XCI6XCJcIn0iLCJjbGllbnRDb25maWciOiJ7XCJpc05hY0NsaWVudFwiOmZhbHNlLFwiY2xpZW50Rmxvd1wiOjJ9IiwibmJmIjoxNzA4NTY0MDgzLCJleHAiOjE3MDg1NjUyODMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.iIirKVaYu9CrYnWI92bz-9UzCQzx3aa2jJtnpy2Omgk",
+    "refreshToken": "K1zwGUacjqRBkWKFfQyEAgYq0w48HmoB2D1cIHscfn8="
+  },
+  "links": [
+    {
+      "rel": ["self"],
+      "href": "https://allianzassistancetravel.com.au/onex/api/application/authenticate"
+    },
+    {
+      "rel": ["rel/pds"],
+      "href": "https://allianzassistancetravel.com.au/onex/api/document/pds/allianz-travel/"
+    },
+    {
+      "rel": ["rel/fsg"],
+      "href": "https://allianzassistancetravel.com.au/onex/api/document/fsg/allianz-travel/"
+    },
+    {
+      "rel": ["rel/quickQuoteProperties"],
+      "href": "https://allianzassistancetravel.com.au/onex/api/quick-quote/travel/properties"
+    }
+  ],
+  "actions": [
+    {
+      "name": "reAuthenticate",
+      "class": ["re-authenticate"],
+      "method": "POST",
+      "href": "https://allianzassistancetravel.com.au/onex/api/application/re-authenticate",
+      "title": "Re Authenticate",
+      "type": "re-authenticate",
+      "fields": [
+        {
+          "name": "accessToken",
+          "type": "string",
+          "title": "Access Token"
+        },
+        {
+          "name": "refreshToken",
+          "type": "string",
+          "title": "Refresh Token"
+        }
+      ]
+    }
+  ],
+  "rel": ["rel/authenticationResult"]
+}
