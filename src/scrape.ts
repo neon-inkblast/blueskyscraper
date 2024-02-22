@@ -3,7 +3,7 @@ import { getCompetitorPrices } from "./competitors/allianz/APIRequest";
 import { processFile } from "./readInput";
 import { writeOutput } from "./writeOutput";
 
-const scrape = async () => {
+export const scrape = async () => {
   const rawRecords = await processFile();
 
   let requestedCompetitors: any = [];
@@ -21,5 +21,3 @@ const scrape = async () => {
   });
   await writeOutput();
 };
-
-scrape();

@@ -5,6 +5,7 @@
   "main": "./scripts/index.js",
   "scripts": {
     "start": "ts-node ./src/index.ts",
+    "scrape": "ts-node ./src/run-scrape.ts",
     "test": "jest --watch"
   },
   "author": "",
