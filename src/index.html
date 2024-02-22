@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Express App</title>
+</head>
+<body>
+<h1>Welcome to our Competitive Creeper App</h1>
+<p>Import your CSV file and we will start stalking the competitors for you!</p>
+<form ref='uploadForm'
+      id='uploadForm'
+      action='http://localhost:3000/upload'
+      method='post'
+      encType="multipart/form-data">
+    <input type="file" name="csvFile" />
+    <input type='submit' value='Upload!' />
+</form>
+</body>
+</html>
