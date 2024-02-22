@@ -31,30 +31,28 @@ export async function getCompetitorPrices(records: any[]) {
       }
     }
 
+    // records = records.slice(0,1);
+    records = records.slice(0, 3);
+
     // remove slice from this loop to run once for each record instead of just one row
-    const quotePromises = records.slice(1, 2).map(async (record: any) => {
+    const quotePromises = records.map(async (record: any, idx: number) => {
+      console.log("processing record: ");
       try {
         const quoteRequestBody = v.inputAdapter(record);
         const quote = await axios.post(v.endpoints.quote.url, quoteRequestBody, {
           headers: quoteHeaders,
         });
         const prices = v.quoteAdapter(quote.data as AllianzQuote);
-        console.log("prices");
-        console.log(prices);
-        return prices;
+        return { prices, recordIndex: idx };
       } catch (e) {
         console.error("quote error:", e, "for record", records);
       }
     });
-    const results = await Promise.allSettled(quotePromises);
+    const results = await Promise.all(quotePromises);
     console.log("inner", results);
     return results;
   });
-  const results = await Promise.allSettled(competitorScrapePromises).then(function (data) {
-    console.log("..");
-    console.log(data);
-    return data;
-  });
-  console.log("results", results[0].value);
-  return results.map((d) => d.value);
+  const results = await Promise.all(competitorScrapePromises);
+  console.log("outer", results);
+  return results;
 }

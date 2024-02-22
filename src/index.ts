@@ -3,31 +3,38 @@ import { processFile } from "./readInput";
 import { writeOutput } from "./writeOutput";
 
 const scrape = async () => {
-  const records = await processFile();
+  const rawRecords = await processFile();
 
   let requestedCompetitors: any = [];
   let compAdd = false;
 
-  records[0].forEach((record) => {
+  const headerRow = rawRecords[0];
+  const records = rawRecords.slice(1);
+
+  headerRow.forEach((record, idx) => {
     if (compAdd) {
-      requestedCompetitors.push(record);
+      requestedCompetitors.push([record, idx]);
     }
     if (record == "Timestamp (issue date)") {
       compAdd = true;
     }
   });
 
-  const prms = requestedCompetitors.map(async function (request) {
-    if (!!competitors[request]) {
-      let out = await competitors[request].requestor(records);
-      console.log("********** output gathered ***************");
-      console.log(out);
+  const prms = requestedCompetitors.map(async function ([competitor, colIndex]) {
+    if (competitors[competitor]) {
+      let out = await competitors[competitor].requestor(records);
+      console.log("pit", out);
+      return { ...out, colIndex };
     }
+    return null;
   });
 
-  const results = Promise.allSettled(prms);
-  console.log(results);
-
+  let results = await Promise.all(prms);
+  results = results.filter((r) => r != null);
+  console.log("mr");
+  results.forEach((r) => {
+    console.log(r);
+  });
   await writeOutput();
 };
 

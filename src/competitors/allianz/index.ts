@@ -14,13 +14,7 @@ export const countryCodeMap: Record<string, string> = {
 export const ALLIANZ = {
   requiresAuth: true,
   requestor: async function (records) {
-    console.log("** getCompetitorPrices **");
-    let out = await getCompetitorPrices(records);
-
-    console.log("out");
-    console.log(out);
-
-    return out;
+    return await getCompetitorPrices(records);
   },
   endpoints: {
     auth: {
