@@ -1,0 +1,1377 @@
+
+#autocompleter-instructions,
+.autocomplete-instructions {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    padding: 16px;
+    z-index: 100
+}
+
+    #autocompleter-instructions strong,
+    .autocomplete-instructions strong {
+        font-weight: bold
+    }
+
+#countryPanel,
+.uber-menu {
+    margin: 4px 16px 0 0;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.08);
+    z-index: 100
+}
+
+    #countryPanel:before,
+    .uber-menu:before {
+        content: none;
+    }
+
+    #countryPanel:after,
+    .uber-menu:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+    #countryPanel h2,
+    #countryPanel .close,
+    #countryPanel > span,
+    .uber-menu h2,
+    .uber-menu .close,
+    .uber-menu > span {
+        display: none
+    }
+
+    #countryPanel .uber-menu-footer,
+    .uber-menu .uber-menu-footer {
+        margin: 0 16px 16px;
+        padding: 6px 16px;
+        color: #1f7c07;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px
+    }
+
+    #countryPanel .uber-menu-header,
+    .uber-menu .uber-menu-header {
+        font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        border-bottom: 1px solid #bbb;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        color: #009623;
+        margin-top: 12px;
+    }
+
+    #countryPanel:before,
+    .uber-menu:before {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        border-bottom: 1px solid #bbb;
+        padding-bottom: 12px;
+        color: #1f7c07
+    }
+
+    #countryPanel .groups,
+    .uber-menu .groups {
+        margin: 8px
+    }
+
+        #countryPanel .groups:after, .uber-menu .groups:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+    #countryPanel .group,
+    .uber-menu .group {
+        float: left;
+        margin-right: 16px;
+        border-left: 1px solid #bbb;
+        padding-left: 16px;
+        margin-bottom: 12px
+    }
+
+        #countryPanel .group:first-child, .uber-menu .group:first-child {
+            border-left: none;
+            padding-left: 8px
+        }
+
+        #countryPanel .group:last-child, .uber-menu .group:last-child {
+            margin-right: 8px
+        }
+
+    #countryPanel h3,
+    .uber-menu h3 {
+        font-weight: bold;
+        font-size: 14px;
+        color: #1f7c07;
+        margin-bottom: 12px
+    }
+
+@media all and (max-width: 640px) {
+    #countryPanel,
+    .uber-menu {
+        padding: 8px
+    }
+
+        #countryPanel:before,
+        .uber-menu:before {
+            position: static;
+            content: "Type a country name";
+            color: #1f7c07;
+            border-bottom: 0;
+        }
+        #countryPanel .uber-menu-header,
+        .uber-menu .uber-menu-header {
+            display: none;
+        }
+
+        #countryPanel .groups,
+        #countryPanel .uber-menu-footer,
+        .uber-menu .groups,
+        .uber-menu .uber-menu-footer {
+            display: none
+        }
+}
+
+.autocomplete {
+    margin: 4px 16px 0 0;
+    z-index: 100
+}
+
+    .autocomplete li {
+        font-size: 14px;
+        line-height: 30px;
+        border-bottom: 1px solid #bbb;
+        background: #fff;
+        padding: 6px 16px;
+        color: #1f7c07
+    }
+
+        .autocomplete li em {
+            font-weight: bold
+        }
+
+        .autocomplete li:hover,
+        .autocomplete li:active,
+        .autocomplete li.selected {
+            background: #26b11b;
+            cursor: pointer
+        }
+
+        .autocomplete li.selected {
+            background: #26b11b
+        }
+
+#selected-destinations {
+    margin-bottom: 0
+}
+
+    #selected-destinations:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+    #selected-destinations li {
+        -webkit-font-smoothing: antialiased;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 6px;
+        color: #555;
+        border-radius: 3px
+    }
+
+        #selected-destinations li a {
+            color: #1f7c07;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            margin-left: 4px;
+            padding: 2px 8px;
+            display: inline-block
+        }
+
+            #selected-destinations li a:hover {
+                cursor: pointer
+            }
+
+            #selected-destinations li a:hover {
+                background: #1f7c07;
+                color: #fff
+            }
+
+@media all and (max-width: 640px) {
+    #selected-destinations li {
+        line-height: 30px;
+        margin-bottom: 6px
+    }
+
+        #selected-destinations li a {
+            background: #1f7c07;
+            color: #fff;
+            padding: 0 12px
+        }
+}
+
+#public-insurance-quote-editor .datepicker {
+    box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    padding: 16px;
+    margin: 4px 16px 0 0
+}
+
+    #public-insurance-quote-editor .datepicker:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+    #public-insurance-quote-editor .datepicker table {
+        margin-bottom: 0
+    }
+
+        #public-insurance-quote-editor .datepicker table td,
+        #public-insurance-quote-editor .datepicker table th {
+            padding: 0
+        }
+
+    #public-insurance-quote-editor .datepicker .closePanel {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+        padding: 6px 12px;
+        font-size: 14px
+    }
+
+        #public-insurance-quote-editor .datepicker .closePanel:hover {
+            cursor: pointer
+        }
+
+    #public-insurance-quote-editor .datepicker .close,
+    #public-insurance-quote-editor .datepicker h3 {
+        display: none
+    }
+
+    #public-insurance-quote-editor .datepicker .datepicker-show-past-month,
+    #public-insurance-quote-editor .datepicker .datepicker-show-next-month {
+        border-radius: 2px;
+        position: absolute;
+        top: 60px;
+        display: block;
+        padding: 5px 12px;
+        color: #fff;
+        background: #1f7c07
+    }
+
+        #public-insurance-quote-editor .datepicker .datepicker-show-past-month:hover,
+        #public-insurance-quote-editor .datepicker .datepicker-show-next-month:hover {
+            color: #26b11b;
+            cursor: pointer
+        }
+
+    #public-insurance-quote-editor .datepicker .datepicker-show-past-month {
+        left: 16px;
+        top: 12px
+    }
+
+    #public-insurance-quote-editor .datepicker .datepicker-show-next-month {
+        right: 16px;
+        top: 12px
+    }
+
+    #public-insurance-quote-editor .datepicker .datepicker-calendar-title {
+        font-weight: bold;
+        text-align: center
+    }
+
+    #public-insurance-quote-editor .datepicker .datepicker-calendar {
+        float: left;
+        margin-right: 16px;
+        margin-bottom: 0
+    }
+
+        #public-insurance-quote-editor .datepicker .datepicker-calendar:nth-last-child(1) {
+            display: inline
+        }
+
+        #public-insurance-quote-editor .datepicker .datepicker-calendar:last-child {
+            margin-right: 0
+        }
+
+        #public-insurance-quote-editor .datepicker .datepicker-calendar th {
+            line-height: 18px;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            text-align: center
+        }
+
+        #public-insurance-quote-editor .datepicker .datepicker-calendar td {
+            border: 2px solid #fff
+        }
+
+            #public-insurance-quote-editor .datepicker .datepicker-calendar td a {
+                border-radius: 3px;
+                display: block;
+                padding: 9px;
+                color: #1f7c07;
+                background: #26b11b;
+                text-align: center
+            }
+
+                #public-insurance-quote-editor .datepicker .datepicker-calendar td a:hover {
+                    background: #1f7c07;
+                    color: #fff;
+                    cursor: pointer
+                }
+
+            #public-insurance-quote-editor .datepicker .datepicker-calendar td.selected a,
+            #public-insurance-quote-editor .datepicker .datepicker-calendar td.inSelectionRange a,
+            #public-insurance-quote-editor .datepicker .datepicker-calendar td.selectedCompanion a {
+                background: #1f7c07;
+                color: #fff
+            }
+
+            #public-insurance-quote-editor .datepicker .datepicker-calendar td.disabled a {
+                background: #858585;
+                color: #b9b9b9
+            }
+
+@media all and (max-width: 1000px) {
+    #public-insurance-quote-editor .datepicker .datepicker-calendar {
+        margin-right: 0
+    }
+
+        #public-insurance-quote-editor .datepicker .datepicker-calendar:nth-last-child(1) {
+            display: none
+        }
+}
+
+@media all and (max-width: 640px) {
+    #public-insurance-quote-editor .datepicker .datepicker-calendar td a {
+        padding: 5px
+    }
+}
+
+@font-face {
+    font-family: NIB-FontAwesome;
+    src: url("fonts/fontawesome-webfont.eot");
+    src: url("fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/fontawesome-webfont.svg") format("svg")
+}
+
+#public-insurance-quote-editor .buy-button-primary {
+    -webkit-font-smoothing: antialiased;
+    background: #ffb400;
+    display: block;
+    box-sizing: border-box;
+    border: none;
+    color: #fff;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color .25s ease;
+}
+    #public-insurance-quote-editor .buy-button-primary:hover {
+        background-color: #cc9000;
+    }
+
+    #public-insurance-quote-editor .buy-button-primary:active {
+        background-color: #996c00;
+    }
+
+    #public-insurance-quote-editor .buy-button-primary:after {
+        position: static;
+        float: right;
+        content: '\f054';
+        font: 20px/20px NIB-FontAwesome;
+        margin-left: 15px;
+    }
+
+#public-insurance-quote-editor form:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor .session-tokens {
+    margin-bottom: 0
+}
+
+#public-insurance-quote-editor legend {
+    width: 95%
+}
+
+#public-insurance-quote-editor select {
+    border-color: #e4e4e4;
+    color: #555;
+    padding: 1px;
+    box-sizing: border-box;
+    margin-right: 4px;
+    cursor: pointer;
+    background-color: #fff
+}
+
+#public-insurance-quote-editor fieldset:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor textarea {
+    width: 100%;
+    height: 100px
+}
+
+#public-insurance-quote-editor input[type='text'],
+#public-insurance-quote-editor input[type='password'],
+#public-insurance-quote-editor input[type='email'],
+#public-insurance-quote-editor input[type='number'] {
+    outline: none;
+    box-sizing: border-box;
+    float: left;
+    clear: both;
+    width: 100%;
+    color: #555;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid #e4e4e4;
+    background: #fff;
+    box-shadow: none;
+    padding: 10px 16px;
+    border-radius: 3px;
+}
+
+    #public-insurance-quote-editor input[type='text']:focus,
+    #public-insurance-quote-editor input[type='password']:focus,
+    #public-insurance-quote-editor input[type='email']:focus,
+    #public-insurance-quote-editor input[type='number']:focus {
+        border-color: #009623
+    }
+
+#public-insurance-quote-editor input.placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor ::-webkit-input-placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor ::-moz-placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor .actions {
+    float: left;
+    width: 100%;
+    text-align: right
+}
+
+    #public-insurance-quote-editor .actions:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+    #public-insurance-quote-editor .actions.important {
+        padding-top: 24px;
+        margin-bottom: 24px
+    }
+
+        #public-insurance-quote-editor .actions.important .input-group:first-child {
+            margin-right: 32px
+        }
+
+    #public-insurance-quote-editor .actions .input-group {
+        float: right;
+        width: auto;
+        margin-right: 0;
+        margin-left: 32px;
+        margin-bottom: 0;
+        min-height: 0
+    }
+
+        #public-insurance-quote-editor .actions .input-group.left {
+            float: left;
+            margin-left: 0;
+            margin-right: 32px
+        }
+
+        #public-insurance-quote-editor .actions .input-group.full-width {
+            float: none;
+            display: block;
+            margin-left: 0
+        }
+
+            #public-insurance-quote-editor .actions .input-group.full-width button {
+                width: 100%
+            }
+
+            #public-insurance-quote-editor .actions .input-group.full-width .button-like {
+                width: 100%;
+                text-align: center;
+                padding-left: 0;
+                padding-right: 0
+            }
+
+@media all and (max-width: 640px) {
+    #public-insurance-quote-editor .input-group {
+        width: 100%;
+        margin-right: 0
+    }
+
+        #public-insurance-quote-editor .input-group.half-width {
+            width: 100%
+        }
+
+    #public-insurance-quote-editor .actions .input-group {
+        width: 100%
+    }
+}
+
+#public-insurance-quote-editor .input-group.error label {
+    color: #d60000
+}
+
+#public-insurance-quote-editor .input-validation-errors {
+    position: relative;
+    margin-left: 0;
+    clear: both
+}
+
+    #public-insurance-quote-editor .input-validation-errors:after {
+        -webkit-font-smoothing: antialiased
+    }
+
+    #public-insurance-quote-editor .input-validation-errors li,
+    #public-insurance-quote-editor .input-validation-errors label {
+        -webkit-font-smoothing: antialiased;
+        list-style-type: none;
+        font-weight: normal;
+        color: #d60000
+    }
+
+#public-insurance-quote-editor #global-messages ul {
+    background: #fff2f2;
+    color: #d60000;
+    padding: 8px 16px
+}
+
+#public-insurance-quote-editor .input-group {
+    margin-bottom: 24px;
+    min-height: 64px
+}
+
+@media all and (max-width: 640px) {
+    #public-insurance-quote-editor .input-group {
+        margin-bottom: 12px;
+        width: 100%;
+        margin-right: 0;
+        min-height: 0
+    }
+}
+
+#public-insurance-quote-editor .input-group button,
+#public-insurance-quote-editor .input-group input {
+    width: 100%
+}
+
+#public-insurance-quote-editor .input-group.no-label {
+    min-height: 0
+}
+
+#public-insurance-quote-editor .input-group.half-width {
+    width: 48%;
+    margin-right: 2%
+}
+
+@media all and (max-width: 640px) {
+    #public-insurance-quote-editor .input-group.half-width {
+        margin-bottom: 12px;
+        width: 100%;
+        margin-right: 0
+    }
+}
+
+#public-insurance-quote-editor .input-group.full-width {
+    float: none;
+    display: block;
+    width: 100%
+}
+
+    #public-insurance-quote-editor .input-group.full-width:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+#public-insurance-quote-editor .input-group.checkbox,
+#public-insurance-quote-editor .input-group.radio {
+    position: relative;
+    min-height: 0
+}
+
+    #public-insurance-quote-editor .input-group.checkbox input[type="checkbox"],
+    #public-insurance-quote-editor .input-group.checkbox input[type="radio"],
+    #public-insurance-quote-editor .input-group.radio input[type="checkbox"],
+    #public-insurance-quote-editor .input-group.radio input[type="radio"] {
+        position: absolute;
+        left: 0;
+        top: -1px;
+        width: auto
+    }
+
+    #public-insurance-quote-editor .input-group.checkbox label,
+    #public-insurance-quote-editor .input-group.radio label {
+        float: left;
+        width: auto;
+        display: block;
+        padding-left: 40px;
+        padding-right: 16px;
+        margin-bottom: 0
+    }
+
+#public-insurance-quote-editor .input-group .remove-button {
+    margin-top: 10px
+}
+
+#public-insurance-quote-editor .promotion-added-notice {
+    margin-left: 0;
+    clear: both
+}
+
+#public-insurance-quote-editor .clear {
+    clear: both
+}
+
+#public-insurance-quote-editor .clear-left {
+    clear: left
+}
+
+#public-insurance-quote-editor .clear-right {
+    clear: right
+}
+
+#public-insurance-quote-editor .input-container {
+    clear: left;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 24px
+}
+
+    #public-insurance-quote-editor .input-container:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+    #public-insurance-quote-editor .input-container h3 {
+        font-size: 14px;
+        margin-bottom: 12px
+    }
+
+#public-insurance-quote-editor body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px
+}
+
+#public-insurance-quote-editor * {
+    -webkit-tap-highlight-color: transparent
+}
+
+#public-insurance-quote-editor h1,
+#public-insurance-quote-editor h2,
+#public-insurance-quote-editor h3,
+#public-insurance-quote-editor h4,
+#public-insurance-quote-editor legend,
+#public-insurance-quote-editor h5,
+#public-insurance-quote-editor h6 {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold
+}
+
+#public-insurance-quote-editor h1 {
+    font-size: 36px;
+    line-height: 40px
+}
+
+#public-insurance-quote-editor h2 {
+    font-size: 34px;
+    line-height: 34px
+}
+
+#public-insurance-quote-editor h3 {
+    font-size: 24px;
+    line-height: 28px
+}
+
+#public-insurance-quote-editor h4,
+#public-insurance-quote-editor legend {
+    font-size: 18px;
+    line-height: 22px
+}
+
+#public-insurance-quote-editor h5 {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+#public-insurance-quote-editor a {
+    color: #009623;
+    text-decoration: none
+}
+
+#public-insurance-quote-editor dl:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor dl dt {
+    float: left;
+    font-weight: bold
+}
+
+#public-insurance-quote-editor dl dd {
+    clear: left;
+    float: left;
+    word-break: break-all
+}
+
+#public-insurance-quote-editor table {
+    width: 100%;
+    clear: both
+}
+
+    #public-insurance-quote-editor table tr {
+        border-bottom: 1px solid #bbb
+    }
+
+        #public-insurance-quote-editor table tr:last-child {
+            border-bottom: none
+        }
+
+    #public-insurance-quote-editor table th {
+        font-weight: bold
+    }
+
+    #public-insurance-quote-editor table th,
+    #public-insurance-quote-editor table td {
+        padding: 8px 16px
+    }
+
+#public-insurance-quote-editor .standard-container:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor .clear {
+    margin-bottom: 0
+}
+
+#public-insurance-quote-editor .mobile-landscape-visibility-check,
+#public-insurance-quote-editor .tablet-visibility-check,
+#public-insurance-quote-editor .thin-desktop-visibility-check {
+    display: none;
+    margin-bottom: 0;
+    height: 0;
+    max-height: 0
+}
+
+@media all and (max-width: 1050px) {
+    #public-insurance-quote-editor .thin-desktop-visibility-check {
+        display: block
+    }
+}
+
+@media all and (max-width: 770px) {
+    #public-insurance-quote-editor .tablet-visibility-check {
+        display: block
+    }
+}
+
+@media all and (max-width: 640px) {
+    #public-insurance-quote-editor .mobile-landscape-visibility-check {
+        display: block
+    }
+}
+
+#public-insurance-quote-editor .standard-container > h3:first-child {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0
+}
+
+#public-insurance-quote-editor .panel:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor .panel .panel-content:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor form:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor .session-tokens {
+    margin-bottom: 0
+}
+
+#public-insurance-quote-editor legend {
+    width: 95%
+}
+
+#public-insurance-quote-editor select {
+    border-color: #e4e4e4;
+    color: #555;
+    padding: 1px;
+    box-sizing: border-box;
+    margin-right: 4px;
+    cursor: pointer;
+    background-color: #fff
+}
+
+#public-insurance-quote-editor fieldset:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+#public-insurance-quote-editor textarea {
+    width: 100%;
+    height: 100px
+}
+
+#public-insurance-quote-editor input.placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor ::-webkit-input-placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor ::-moz-placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor .actions {
+    float: left;
+    width: 100%;
+    text-align: right
+}
+
+    #public-insurance-quote-editor .actions:after {
+        content: "";
+        display: table;
+        clear: both
+    }
+
+    #public-insurance-quote-editor .actions.important {
+        padding-top: 24px;
+        margin-bottom: 24px
+    }
+
+        #public-insurance-quote-editor .actions.important .input-group:first-child {
+            margin-right: 32px
+        }
+
+    #public-insurance-quote-editor .actions .input-group {
+        float: right;
+        width: auto;
+        margin-right: 0;
+        margin-left: 32px;
+        margin-bottom: 0;
+        min-height: 0
+    }
+
+        #public-insurance-quote-editor .actions .input-group.left {
+            float: left;
+            margin-left: 0;
+            margin-right: 32px
+        }
+
+        #public-insurance-quote-editor .actions .input-group.full-width {
+            float: none;
+            display: block;
+            margin-left: 0
+        }
+
+            #public-insurance-quote-editor .actions .input-group.full-width button {
+                width: 100%
+            }
+
+            #public-insurance-quote-editor .actions .input-group.full-width .button-like {
+                width: 100%;
+                text-align: center;
+                padding-left: 0;
+                padding-right: 0
+            }
+
+
+@media all and (max-width: 640px) {
+    #public-insurance-quote-editor .input-group {
+        width: 100%;
+        margin-right: 0
+    }
+
+        #public-insurance-quote-editor .input-group.half-width {
+            width: 100%
+        }
+
+    #public-insurance-quote-editor .actions .input-group {
+        width: 100%
+    }
+}
+
+#public-insurance-quote-editor .datepicker {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px
+}
+
+    #public-insurance-quote-editor .datepicker div {
+        margin-bottom: 24px
+    }
+
+.autocomplete {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px
+}
+
+    .autocomplete div {
+        margin-bottom: 24px
+    }
+
+#public-insurance-quote-editor .input-with-icon > span {
+    display: none
+}
+
+#public-insurance-quote-editor label {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px
+}
+
+#public-insurance-quote-editor #selected-destinations {
+    margin-bottom: 0
+}
+
+#public-insurance-quote-editor .qqc:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#public-insurance-quote-editor .qqc-field {
+    position: relative;
+    float: left;
+    width: 31.4%;
+    margin-right: 2.9%;
+    color: #fff;
+}
+
+    #public-insurance-quote-editor .qqc-field:before {
+        padding-left: 30px;
+        font-size: 24px;
+        line-height: 20px;
+        font-weight: 300;
+    }
+
+    #public-insurance-quote-editor .qqc-field.where > *,
+    #public-insurance-quote-editor .qqc-field.when > *,
+    #public-insurance-quote-editor .qqc-field.ages > * {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #public-insurance-quote-editor .qqc-field h5,
+    #public-insurance-quote-editor .qqc-field .input-group label {
+        display: block;
+        margin-top: 0;
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: bold;
+        margin-bottom: 6px;
+        background: transparent;
+    }
+
+    #public-insurance-quote-editor .qqc-field h5 {
+        padding-top: 10px;
+    }
+
+        #public-insurance-quote-editor .qqc-field h5:after {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            font: 24px/20px NIB-FontAwesome;
+            color: #fff;
+        }
+
+    #public-insurance-quote-editor .qqc-field.no-heading h5 {
+        margin-bottom: 0
+    }
+
+        #public-insurance-quote-editor .qqc-field.no-heading h5 span {
+            display: none;
+        }
+
+    #public-insurance-quote-editor .qqc-field .input-group {
+        min-height: 0;
+        width: auto;
+        margin-bottom: 24px;
+    }
+
+        #public-insurance-quote-editor .qqc-field .input-group:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+    #public-insurance-quote-editor .qqc-field input {
+        margin-bottom: 0;
+    }
+
+    #public-insurance-quote-editor .qqc-field.where:before {
+        content: "Where";
+    }
+
+    #public-insurance-quote-editor .qqc-field.where h5:after {
+        font-size: 30px;
+        content: "\f072";
+    }
+
+    #public-insurance-quote-editor .qqc-field.when:before {
+        content: "When";
+    }
+
+    #public-insurance-quote-editor .qqc-field.when h5:after {
+        content: "\f073";
+    }
+
+
+    #public-insurance-quote-editor .qqc-field.when .input-group + .input-group {
+        margin-top: -14px;
+    }
+
+    #public-insurance-quote-editor .qqc-field.ages {
+        margin: 0
+    }
+
+        #public-insurance-quote-editor .qqc-field.ages:before {
+            content: "Who";
+        }
+
+        #public-insurance-quote-editor .qqc-field.ages h5:after {
+            content: "\f0c0";
+        }
+
+        #public-insurance-quote-editor .qqc-field.ages input {
+            float: left;
+            width: 45%;
+            margin-right: 0;
+            clear: none
+        }
+
+            #public-insurance-quote-editor .qqc-field.ages input:first-child {
+                margin-right: 10%
+            }
+
+    #public-insurance-quote-editor .qqc-field.when {
+        margin-bottom: 24px
+    }
+
+#public-insurance-quote-editor.portrait .qqc-field {
+    width: 100%;
+    margin-right: 0
+}
+
+    #public-insurance-quote-editor.portrait .qqc-field .input-group {
+        width: 100%
+    }
+
+#public-insurance-quote-editor.portrait .actions .input-group {
+    margin-left: 0;
+    float: none
+}
+
+    #public-insurance-quote-editor h1,
+    #public-insurance-quote-editor h2,
+    #public-insurance-quote-editor h3,
+    #public-insurance-quote-editor h4,
+    #public-insurance-quote-editor h5,
+    #public-insurance-quote-editor h6,
+    #public-insurance-quote-editor legend {
+        font-weight: normal;
+        text-transform: none
+    }
+
+#public-insurance-quote-editor a:hover {
+    text-decoration: underline
+}
+
+#public-insurance-quote-editor select {
+    height: 30px;
+    padding-left: 8px;
+    padding-right: 8px
+}
+
+.uber-menu {
+    position: relative
+}
+
+    .uber-menu:after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #fff
+    }
+
+    .uber-menu .group ul li {
+        color: #1f7c07;
+        padding: 0 5px;
+        position: relative;
+        left: -5px;
+        line-height: 24px;
+        border-radius: 2px
+    }
+
+        .uber-menu .group ul li:hover {
+            cursor: pointer
+        }
+
+        .uber-menu .group ul li:hover {
+            background: #1f7c07;
+            color: #fff
+        }
+
+    .uber-menu h3 {
+        color: #555
+    }
+
+    .uber-menu:before {
+        color: #555;
+        border-bottom: none
+    }
+
+.autocomplete {
+    position: relative;
+    border: 1px solid #dadada
+}
+
+    .autocomplete:after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #fff
+    }
+
+    .autocomplete li.selected {
+        color: #fff
+    }
+
+    .autocomplete li:last-child {
+        border-bottom: none
+    }
+
+#selected-destinations li {
+    float: left;
+    background: #e3f7dd;
+    margin-right: 8px;
+    padding-left: 8px
+}
+
+    #selected-destinations li a {
+        border-radius: 2px
+    }
+
+        #selected-destinations li a:hover {
+            text-decoration: none
+        }
+
+.datepicker .datepicker-calendar td a {
+    background: #e3f7dd
+}
+
+.datepicker .datepicker-calendar td.disabled a {
+    background: #f9f9f9
+}
+
+    .datepicker .datepicker-calendar td.disabled a:hover {
+        text-decoration: none
+    }
+
+.datepicker .datepicker-show-next-month:hover,
+.datepicker .datepicker-show-past-month:hover {
+    color: #fff
+}
+
+.uber-menu {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+    .uber-menu ul {
+        list-style-type: none;
+        padding-left: 0
+    }
+
+        .uber-menu ul li {
+            margin-left: 0;
+            font-size: 14px
+        }
+
+.autocomplete {
+    list-style-type: none;
+    padding-left: 0
+}
+
+#public-insurance-quote-editor * {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#public-insurance-quote-editor ul {
+    list-style-type: none
+}
+
+#public-insurance-quote-editor ul,
+#public-insurance-quote-editor li,
+#public-insurance-quote-editor p {
+    padding: 0;
+    margin: 0
+}
+
+#public-insurance-quote-editor .input-group {
+    margin-bottom: 12px
+}
+
+#public-insurance-quote-editor input.placeholder {
+    color: #b9b9b9
+}
+
+#public-insurance-quote-editor {
+    padding: 24px 24px 0;
+    background: #008a20;
+    border-radius: 0;
+    box-shadow: none;
+    color: #555
+}
+
+    #public-insurance-quote-editor .qqc {
+        position: relative;
+        width: auto;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    #public-insurance-quote-editor h5 {
+        color: #fff;
+        font-size: 14px;
+        margin-bottom: 6px;
+        font-weight: bold
+    }
+
+    #public-insurance-quote-editor #selected-destinations li {
+        margin-bottom: 6px;
+        margin-left: 8px;
+        padding-left: 8px
+    }
+
+        #public-insurance-quote-editor #selected-destinations li:first-child {
+            margin-left: 0
+        }
+
+    #public-insurance-quote-editor .qqc-field.membership-number-details {
+        width: 70%;
+        float: left;
+        clear: left;
+        margin-top: 0;
+        margin-right: 0;
+        padding-left: 0;
+        background: transparent;
+    }
+
+        #public-insurance-quote-editor .qqc-field.membership-number-details .input-group {
+            width: 100%
+        }
+
+    #public-insurance-quote-editor .actions {
+        width: 30%;
+        float: right;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 24px
+    }
+
+        #public-insurance-quote-editor .actions .input-group {
+            float: right;
+            width: 100%;
+        }
+
+@media all and (max-width: 650px) {
+    #public-insurance-quote-editor .qqc-field .input-group,
+    #public-insurance-quote-editor .qqc-field.where,
+    #public-insurance-quote-editor .qqc-field.when,
+    #public-insurance-quote-editor .qqc-field.ages,
+    #public-insurance-quote-editor .qqc-field.membership-number-details,
+    #public-insurance-quote-editor .actions,
+    #public-insurance-quote-editor .actions .input-group {
+        width: 100%;
+    }
+
+        #public-insurance-quote-editor .qqc-field.where > *,
+        #public-insurance-quote-editor .qqc-field.when > *,
+        #public-insurance-quote-editor .qqc-field.ages > * {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+    #public-insurance-quote-editor .qqc-field.membership-number-details {
+        padding: 4% 0;
+    }
+}
+
+#public-insurance-quote-editor .input-validation-errors {
+    float: left;
+    clear: both;
+    margin-top: 12px;
+    background: #f7cccc;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 8px;
+    border-radius: 4px
+}
+
+#public-insurance-quote-editor div {
+    box-sizing: border-box;
+}

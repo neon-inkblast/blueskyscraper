@@ -4,16 +4,24 @@ import { processFile } from "./readInput";
 import { QuoteRecord } from "./types";
 import { writeOutput } from "./writeOutput";
 
-export const scrape = async () => {
+export const scrape = async (updateProgress: Function) => {
   const rawRecords = await processFile();
 
   const headerRow = rawRecords[0];
   const records = rawRecords.slice(1);
 
-  console.log("records");
-  console.log(records);
+  // console.log("records");
+  // console.log(records);
 
-  let results = await getCompetitorPrices(records);
+  let maxLength = records.length * Object.keys(competitors).length;
+  console.log("maxLength:",maxLength);
+  let completed = 1;
+
+  let processed = function(){
+    updateProgress(completed++/maxLength);
+  }
+
+  let results = await getCompetitorPrices(records,processed);
   results.forEach((r) => {
     console.log("setting prices for:", r[0]);
     // console.log(JSON.stringify(r, null, 2));
@@ -38,10 +46,12 @@ export const scrape = async () => {
 function setAllianzPrices(records: QuoteRecord[], results) {
   // console.log(results);
   results.forEach((result) => {
-    const id = result.recordId;
-    const price = result.prices[0].price;
-    records[id-1].Allianz = price;
-    console.log(result)
+    if(result != null){
+      const id = result.recordId;
+      const price = result.prices[0].price;
+      records[id-1].Allianz = price;
+      console.log(result)
+    }
   });
 }
 

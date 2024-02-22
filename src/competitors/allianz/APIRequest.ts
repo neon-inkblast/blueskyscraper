@@ -9,7 +9,7 @@ const defaultHeaders = {
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
 };
 
-export async function getCompetitorPrices(records: QuoteRecord[]) {
+export async function getCompetitorPrices(records: QuoteRecord[],processed: Function) {
   const competitorScrapePromises = Object.entries(competitors).map(async ([k, v]) => {
     console.log("processing competitor: ", k);
     let quoteHeaders: Record<string, string> = { ...defaultHeaders };
@@ -33,7 +33,9 @@ export async function getCompetitorPrices(records: QuoteRecord[]) {
     }
 
     // only take top record for now
-    records = records.slice(0, 1);
+    // records = records.slice(0, 1);
+
+    
 
     // remove slice from this loop to run once for each record instead of just one row
     const quotePromises = records.map(async (record: QuoteRecord) => {
@@ -57,8 +59,12 @@ export async function getCompetitorPrices(records: QuoteRecord[]) {
           headers: realQuoteHeader,
         });
         const prices = v.quoteAdapter(quote.data as AllianzQuote);
+        console.log("processed record: ", record.id);
+        processed();
         return { prices, recordId: record.id };
       } catch (e) {
+        console.log("Failed to process record: ", record.id);
+        processed();
         console.error("quote error:", e, "for record", record);
       }
     });

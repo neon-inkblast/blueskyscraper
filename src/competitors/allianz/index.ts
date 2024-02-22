@@ -15,8 +15,8 @@ export const countryCodeMap: Record<string, string> = {
 export const ALLIANZ = {
   requiresAuth: true,
   requiresQuoteHeader: false,
-  requestor: async function (records) {
-    return await getCompetitorPrices(records);
+  requestor: async function (records, updateProgress) {
+    return await getCompetitorPrices(records, updateProgress);
   },
   endpoints: {
     auth: {

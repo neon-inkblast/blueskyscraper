@@ -1,0 +1,44 @@
+const accordion = document.getElementsByClassName('accordion');
+
+for (i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener('click', function () {
+    this.classList.toggle('accordion--active');
+  });
+}
+
+window.addEventListener('load', (event) => {
+  const footerLinksMobile = document.getElementsByClassName('footer-links--mobile');
+  for (i = 0; i < footerLinksMobile.length; i++) {
+    footerLinksMobile[i].addEventListener('click', function () {
+      this.classList.toggle('footer-links--active');
+    });
+  }
+});
+
+const navMenuButton = document.getElementById('nav-menu-hamburger');
+const navMenuList = document.getElementById('nav-menu-list');
+const navMenuCloseButtton = document.getElementById('nav-mobile-close');
+const navLinkExpandHealth = document.getElementsByClassName('icon--expand')[0];
+const navLinkExpandTravel = document.getElementsByClassName('icon--expand')[1];
+const navMobileLinkExpanded = document.getElementsByClassName('nav-mobile-link-expanded')[0];
+const navMobileLinkExpanded2 = document.getElementsByClassName('nav-mobile-link-expanded')[1];
+
+
+navMenuButton.addEventListener('click', function () {
+  navMenuList.classList.toggle('nav-mobile--active');
+});
+
+navMenuCloseButtton.addEventListener('click', function () {
+  navMenuList.classList.toggle('nav-mobile--active');
+});
+
+navLinkExpandHealth.addEventListener('click', function () {
+  navMobileLinkExpanded.classList.toggle('nav-mobile-link-expanded--active');
+  navLinkExpandHealth.classList.toggle('icon--rotate180');
+});
+
+
+navLinkExpandTravel.addEventListener('click', function () {
+  navMobileLinkExpanded2.classList.toggle('nav-mobile-link-expanded--active');
+  navLinkExpandTravel.classList.toggle('icon--rotate180');
+});

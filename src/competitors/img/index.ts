@@ -7,8 +7,8 @@ import { getCompetitorPrices } from "../allianz/APIRequest";
 export const IMG = {
   requiresAuth: false,
   requiresQuoteHeader: true,
-  requestor: async function (records) {
-    return await getCompetitorPrices(records);
+  requestor: async function (records, updateProgress) {
+    return await getCompetitorPrices(records, updateProgress);
   },
   endpoints: {
     auth: {

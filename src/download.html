@@ -327,39 +327,108 @@ Check Up</a></li>
 </div>
 
 
+<script type="text/javascript">
+
+
+    function downloadFile(){
+        let dataUri = "http://localhost:3000/download";
+        let filename = "data.csv";
+
+        var element = document.createElement('a');
+        element.setAttribute('href', dataUri);
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+
+        document.body.appendChild(element);
+
+        element.click();
+        document.body.removeChild(element);
+    }
+
+    function checkProgress(){
+
+
+        console.log("yeah");
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function() {
+          if(this.readyState === 4) {
+            console.log(this.responseText);
+            let newWidth = this.responseText+"%";
+
+            let animTime = 1000;
+
+            if(this.responseText == "100"){
+                animTime = 10;
+            }
+
+            $(".meter > span").each(function () {
+              $(this)
+                .data("origWidth", $(this).width())
+                .width($(this).data("origWidth"))
+                .animate(
+                  {
+                    width: newWidth
+                  },
+                  animTime
+                );
+            });
+
+
+            if(this.responseText != "100"){
+                setTimeout(() => {
+                  checkProgress();
+                }, 1000);
+            }else{
+                downloadFile();
+                $("#qqc-heading").html("File Processed");
+                $(".qqc-field").html("<h5><span>Your download is in progress, to manually download manually click <a href='/download'>here</a>.</span></h5>");
+            }
+          }
+        });
+
+        xhr.open("GET", "/progress");
+
+        xhr.send();
+
+        
+    }
+
+    window.onload = function(){
+        checkProgress();
+    }
+
+</script>
 
 <div id="qqc" class="qqc-wrapper panel solid no-heading">
     <h2 id="qqc-heading">
-        Upload your CSV to begin crawling.
+        Your file is being processed.
     </h2>
     <div class="panel-content" id="public-insurance-quote-editor" style="width: 100%;">
-
-        <form ref='uploadForm'
-      id='qqc-form'
-      action='http://localhost:3000/upload'
-      method='post'
-      encType="multipart/form-data">
-    <!-- <input type="file" name="csvFile" />
-    <input type='submit' value='Upload!' />
-</form>
-
-
         <form action="https://www.nibtravelinsurance.com.au/Home/MultiTarget" id="qqc-form" method="post">
- -->
-            <div class="qqc-field " style="width: 100%;">
-                <h5><span>Import your CSV file and we will start stalking the competitors for you!</span></h5>
+
+            <div class="qqc-field" style="width: 100%;">
+                <h5><span>Your file will start downloading once it has finished processing.</span></h5>
 
 
                 <div class="input-group" id="quote-traveller-ages">
+
+                    <div class="meter">
+                        <span style="width: 0%"></span>
+                    </div>
                     <!-- Travel ages are not editable if you have a traveller date of birth set-->
                     <!-- <input id="ActiveQuoteDto_TravellerAges_0__Age" maxlength="3" name="ActiveQuoteDto.TravellerAges[0].Age" pattern="[0-9]*" placeholder="Age" type="number" value=""> -->
-                    <input type="file" name="csvFile" style="margin-bottom: 30px;max-width: 100%;"><br>
-                    <input type="submit" value="Upload!" class="continue buy-button-primary" style="float: right;">
+                    <!-- <input type="file" name="csvFile" style="margin-bottom: 30px;max-width: 100%;"><br> -->
+                    <!-- <input type="submit" value="Upload!" class="continue buy-button-primary" style="float: right;"> -->
                 </div>
 
             </div>
         </form>        </div>
     </div>
+
 
     <!-- InsertedContent:/cms-content-snippet/homepage-promo-after-quote-panel 2/22/2024 10:43:27 AM -->
 
@@ -433,6 +502,9 @@ Check Up</a></li>
 
                     <script nonce="" src="/static/main.js.download"></script>
                     <script nonce="" src="/static/jquery-1.7.1.js"></script>
+
+                    
+
 
                     <svg display="none">
                       <defs>
