@@ -71,16 +71,18 @@ const scrape = async () => {
     }
   });
 
-    console.log("requestedCompetitors");
-    console.log(requestedCompetitors);
+    // console.log("requestedCompetitors");
+    // console.log(requestedCompetitors);
 
-    console.log("competitors");
-    console.log(competitors);
+    // console.log("competitors");
+    // console.log(competitors);
 
 
     requestedCompetitors.forEach(function(request){
       if(!!competitors[request]){
-        competitors[request].requestor();
+        let out = competitors[request].requestor(records);
+        console.log("********** output gathered ***************")
+        console.log(out);
       }
     })
 
@@ -89,27 +91,5 @@ const scrape = async () => {
 
   await writeOutput();
 };
-
-const defaultHeaders = {
-  "Content-Type": "application/json",
-  "User-Agent":
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-};
-
-
-async function getCompetitorPrices(records: any[]) {
-  const competitorScrapePromises = Object.entries(competitors).map(async ([k, v]) => {
-    console.log("processing competitor: ", k);
-    if (v.requiresAuth) {
-      let token: string;
-      try {
-        const authResult = await axios.post(v.endpoints.auth.url, v.endpoints.auth.body, {
-          headers: { ...defaultHeaders },
-        });
-        token = v.authTokenAdapter(authResult);
-      } catch (e) {
-        console.error("auth error:", e);
-        throw e;
-      }
 
 scrape();
