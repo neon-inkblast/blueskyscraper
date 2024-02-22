@@ -162,3 +162,10 @@ const exampleRequest = async () => {
 
   return axios.post<ApiResponse<DiscountResponse>>(quoteDetailsDiscountsUrl, examplePayload);
 };
+
+const test = async () => {
+  const response = await exampleRequest();
+  console.log(JSON.stringify(response.data, null, 2));
+};
+
+test();
