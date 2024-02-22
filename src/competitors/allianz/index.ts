@@ -62,7 +62,7 @@ function allianzQuoteInputAdapter(record: QuoteRecord) {
     destinationIds: [countryCodeMap[record.destination]],
     startDate,
     endDate,
-    ageOfAdults: [record.travellerAge1, record.travellerAge2].filter((age) => age != null),
+    ageOfAdults: [record.travellerAge1, record.travellerAge2].filter((age) => !!age),
     ageOfDependants: [],
     answeredQuestions: [{ id: "RESID", answer: { id: "Y" } }],
   };

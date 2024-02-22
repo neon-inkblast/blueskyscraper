@@ -32,7 +32,7 @@ export async function getCompetitorPrices(records: QuoteRecord[]) {
       }
     }
 
-    // records = records.slice(0,1);
+    // only take top record for now
     records = records.slice(0, 1);
 
     // remove slice from this loop to run once for each record instead of just one row
@@ -50,8 +50,9 @@ export async function getCompetitorPrices(records: QuoteRecord[]) {
       }
     });
     const results = await Promise.all(quotePromises);
-    return { [k]: results };
+    return [k, results];
   });
   const results = await Promise.all(competitorScrapePromises);
+
   return results;
 }

@@ -3,7 +3,7 @@ import fs from "fs";
 import { QuoteRecord } from "./types";
 
 // Example usage
-const jsonData: QuoteRecord[] = [
+const exampleData: QuoteRecord[] = [
   {
     id: 19,
     plan: "Comprehensive",
@@ -57,7 +57,7 @@ const jsonData: QuoteRecord[] = [
   },
 ];
 
-export const writeOutput = async (input: QuoteRecord[] = jsonData) => {
+export const writeOutput = async (input: QuoteRecord[] = exampleData) => {
   try {
     const csv = parse(input);
     await fs.writeFileSync("src/output/output.csv", csv);

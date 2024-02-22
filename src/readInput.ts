@@ -14,40 +14,7 @@ export const processFile = async () => {
     let record;
     let id = 0;
     while ((record = parser.read()) !== null) {
-      const [
-        plan,
-        travellerAge1,
-        travellerAge2,
-        destination,
-        duration,
-        leadDays,
-        excess,
-        cancellationCover,
-        timestamp,
-        IMG,
-        SafetyWing,
-        Allianz,
-        Battleface,
-        TravelGuard,
-      ] = record;
-
-      const recordDAO: QuoteRecord = {
-        id: id++,
-        plan,
-        travellerAge1,
-        travellerAge2,
-        destination,
-        duration,
-        leadDays,
-        excess,
-        cancellationCover,
-        timestamp,
-        IMG,
-        SafetyWing,
-        Allianz,
-        Battleface,
-        TravelGuard,
-      };
+      const recordDAO = parseRecord(record, id++);
       records.push(recordDAO);
     }
   });
@@ -55,3 +22,41 @@ export const processFile = async () => {
 
   return records;
 };
+
+function parseRecord(record: any[], id) {
+  const [
+    plan,
+    travellerAge1,
+    travellerAge2,
+    destination,
+    duration,
+    leadDays,
+    excess,
+    cancellationCover,
+    timestamp,
+    IMG,
+    SafetyWing,
+    Allianz,
+    Battleface,
+    TravelGuard,
+  ] = record;
+
+  const recordDAO: QuoteRecord = {
+    id,
+    plan,
+    travellerAge1,
+    travellerAge2,
+    destination,
+    duration,
+    leadDays,
+    excess,
+    cancellationCover,
+    timestamp,
+    IMG,
+    SafetyWing,
+    Allianz,
+    Battleface,
+    TravelGuard,
+  };
+  return recordDAO;
+}
