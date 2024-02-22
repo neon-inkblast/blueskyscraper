@@ -4,6 +4,7 @@ import { parse } from "csv-parse";
 // Note, the `stream/promises` module is only available
 // starting with Node.js version 16
 import { finished } from "stream/promises";
+import { QuoteRecord } from "./types";
 
 const inputPath = path.join(__dirname, "input", "input.csv");
 export const processFile = async () => {
@@ -11,9 +12,43 @@ export const processFile = async () => {
   const parser = fs.createReadStream(inputPath).pipe(parse({}));
   parser.on("readable", function () {
     let record;
+    let id = 0;
     while ((record = parser.read()) !== null) {
-      // Work with each record
-      records.push(record);
+      const [
+        plan,
+        travellerAge1,
+        travellerAge2,
+        destination,
+        duration,
+        leadDays,
+        excess,
+        cancellationCover,
+        timestamp,
+        IMG,
+        SafetyWing,
+        Allianz,
+        Battleface,
+        TravelGuard,
+      ] = record;
+
+      const recordDAO: QuoteRecord = {
+        id: id++,
+        plan,
+        travellerAge1,
+        travellerAge2,
+        destination,
+        duration,
+        leadDays,
+        excess,
+        cancellationCover,
+        timestamp,
+        IMG,
+        SafetyWing,
+        Allianz,
+        Battleface,
+        TravelGuard,
+      };
+      records.push(recordDAO);
     }
   });
   await finished(parser);

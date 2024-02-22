@@ -1,4 +1,5 @@
 import { competitors } from "./competitors";
+import { getCompetitorPrices } from "./competitors/allianz/APIRequest";
 import { processFile } from "./readInput";
 import { writeOutput } from "./writeOutput";
 
@@ -11,29 +12,12 @@ const scrape = async () => {
   const headerRow = rawRecords[0];
   const records = rawRecords.slice(1);
 
-  headerRow.forEach((record, idx) => {
-    if (compAdd) {
-      requestedCompetitors.push([record, idx]);
-    }
-    if (record == "Timestamp (issue date)") {
-      compAdd = true;
-    }
-  });
+  let results = await getCompetitorPrices(records);
 
-  const prms = requestedCompetitors.map(async function ([competitor, colIndex]) {
-    if (competitors[competitor]) {
-      let out = await competitors[competitor].requestor(records);
-      console.log("pit", out);
-      return { ...out, colIndex };
-    }
-    return null;
-  });
-
-  let results = await Promise.all(prms);
-  results = results.filter((r) => r != null);
+  // results = results.filter((r) => r != null);
   console.log("mr");
   results.forEach((r) => {
-    console.log(r);
+    console.log(JSON.stringify(r));
   });
   await writeOutput();
 };

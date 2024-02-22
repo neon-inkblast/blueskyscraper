@@ -1,3 +1,4 @@
+import { QuoteRecord } from "../../types";
 import { getCompetitorPrices } from "./APIRequest";
 import { AllianzQuote } from "./types";
 
@@ -49,19 +50,19 @@ function allianzAuthAdapter(input: any) {
   return input.data.properties.accessToken;
 }
 
-function allianzQuoteInputAdapter(record: any[]) {
+function allianzQuoteInputAdapter(record: QuoteRecord) {
   // convert CSV row to Allianz quote input
   const curDate = new Date();
-  const leadTime = record[5];
-  const duration = record[4];
+  const leadTime = record.leadDays;
+  const duration = record.duration;
   const startDate = new Date(curDate.getTime() + leadTime * 24 * 60 * 60 * 1000);
   const endDate = new Date(startDate.getTime() + duration * 24 * 60 * 60 * 1000);
 
   return {
-    destinationIds: [countryCodeMap[record[3]]],
+    destinationIds: [countryCodeMap[record.destination]],
     startDate,
     endDate,
-    ageOfAdults: [record[1], record[2]],
+    ageOfAdults: [record.travellerAge1, record.travellerAge2].filter((age) => age != null),
     ageOfDependants: [],
     answeredQuestions: [{ id: "RESID", answer: { id: "Y" } }],
   };
