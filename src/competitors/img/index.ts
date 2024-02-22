@@ -12,12 +12,12 @@ export const IMG = {
   },
   endpoints: {
     auth: {
-      url: "https://allianzassistancetravel.com.au/onex/api/Application/Authenticate",
+      url: "",
       body: {
-        clientType: "B2CWS",
-        clientId: 304,
-        brandCode: "ALZC",
-        providerCode: "PSXALIAU",
+        clientType: "",
+        clientId: 0,
+        brandCode: "",
+        providerCode: "",
       },
       method: "POST",
     },

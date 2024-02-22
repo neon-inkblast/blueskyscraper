@@ -19,6 +19,10 @@ export const scrape = async () => {
         setAllianzPrices(records, r[1]);
         break;
       }
+      case "IMG": {
+        setImgPrices(records, r[1]);
+        break;
+      }
       default: {
         console.warn("competitor field not matched");
       }
@@ -34,5 +38,10 @@ function setAllianzPrices(records: QuoteRecord[], results) {
     const id = result.recordId;
     const price = result.prices[0].price;
     records[id].Allianz = price;
+    console.log(result)
   });
+}
+
+function setImgPrices(records: QuoteRecord[], results) {
+  console.log(results);
 }
