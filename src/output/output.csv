@@ -1,0 +1,4 @@
+"duration","leadDays","excess","cancellationCover","issueDate","img","safetyWing","allianz","battleface","travelGuard"
+30,10,0,10000,"date",200,200,200,200,200
+30,10,100,5000,"date",300,300,300,300,300
+30,10,150,20000,"date",150,150,150,150,150
