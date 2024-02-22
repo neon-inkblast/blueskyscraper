@@ -71,16 +71,21 @@ const packagesUrl = (productId: number, hostCountryId: number, hostCountryStateI
   `https://gateway.battleface.com/api/product/${productId}/host-country/${hostCountryId}/host-country-state/${hostCountryStateId}/packages`;
 const quoteDetailsDiscountsUrl = "https://gateway.battleface.com/api/quote/details/discounts";
 
+// spooky! we cache load and cache the country responses on module import
+const destinationCountries = (async () =>
+  (await axios.get<ApiResponse<DestinationCountry[]>>(destinationCountriesUrl)).data)();
+
+const hostCountriesAndProvinces = (async () =>
+  (await axios.get<ApiResponse<HostCountry[]>>(hostCountriesUrl)).data)();
+
 const getDestinationCountry = async (countryCode: string) => {
-  const destinationCountries =
-    await axios.get<ApiResponse<DestinationCountry[]>>(destinationCountriesUrl);
-  return destinationCountries.data.data.find((dc) => dc.code === countryCode);
+  return (await destinationCountries).data.find((dc) => dc.code === countryCode);
 };
 
 const getHostCountryAndProvince = async (countryCode: string, provinceCode: string) => {
-  const hostCountries = await axios.get<ApiResponse<HostCountry[]>>(hostCountriesUrl);
+  const hostCountries = (await hostCountriesAndProvinces).data;
 
-  const country = hostCountries.data.data.find((hc) => hc.code === countryCode);
+  const country = hostCountries.find((hc) => hc.code === countryCode);
 
   const province = country?.states.find((province) => province.code === provinceCode);
 
@@ -129,6 +134,45 @@ const getQuote = async (
     deposit_date: new Date().toISOString().slice(0, 10),
     packages: packages.data.map((p) => ({ id: p.id })),
   } satisfies DiscountRequest;
+};
+
+const addDays = (days: number, date = new Date()) => {
+  date.setDate(date.getDate() + days);
+  return date;
+};
+
+const countryCodeMap = {
+  Indonesia: "ID",
+  Philippines: "PH",
+  Turkey: "TR",
+  "United Arab Emirates": "AE",
+  "Sri Lanka": "LK",
+  USA: "US",
+  France: "FR",
+} as const;
+
+const getDob = (age: number, date = new Date()) => {
+  date.setFullYear(date.getFullYear() - age);
+  return date.toISOString().slice(0, 10);
+};
+
+export const quoteInputAdapter = async (record: QuoteRecord) => {
+  const curDate = new Date();
+  const startDate = addDays(record.leadTime).toISOString().slice(0, 10);
+  const endDate = addDays(-record.duration).toISOString().slice(0, 10);
+  const destinationCountry = countryCodeMap[record.destination as keyof typeof countryCodeMap];
+  const firstTravellerDob = getDob(record.adultTravelerAge1);
+  const secondTravellerDob = getDob(record.adultTravelerAge2);
+
+  const applicants: Applicant[] = [
+    { is_main: true, dob: firstTravellerDob, trip_cost: 0 },
+
+    { is_main: false, dob: secondTravellerDob, trip_cost: 0 },
+  ];
+
+  const quote = await getQuote("AU", "VIC", [destinationCountry], startDate, endDate, applicants);
+
+  return quote;
 };
 
 const exampleRequest = async () => {
