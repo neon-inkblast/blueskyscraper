@@ -8,11 +8,7 @@ import { finished } from "stream/promises";
 const inputPath = path.join(__dirname, "input", "input.csv");
 export const processFile = async () => {
   const records: any[] = [];
-  const parser = fs.createReadStream(inputPath).pipe(
-    parse({
-      // CSV options if any
-    }),
-  );
+  const parser = fs.createReadStream(inputPath).pipe(parse({}));
   parser.on("readable", function () {
     let record;
     while ((record = parser.read()) !== null) {
@@ -21,6 +17,6 @@ export const processFile = async () => {
     }
   });
   await finished(parser);
-  console.log(records);
+
   return records;
 };

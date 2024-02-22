@@ -1,14 +1,16 @@
+import { AllianzQuote } from "./types";
+
 export const ALLIANZ = {
   requiresAuth: true,
   endpoints: {
     auth: {
       url: "https://allianzassistancetravel.com.au/onex/api/Application/Authenticate",
-      body: JSON.stringify({
+      body: {
         clientType: "B2CWS",
         clientId: 304,
         brandCode: "ALZC",
         providerCode: "PSXALIAU",
-      }),
+      },
       method: "POST",
     },
     quote: {
@@ -24,4 +26,28 @@ export const ALLIANZ = {
       method: "POST",
     },
   },
+  authTokenAdapter: allianzAuthAdapter,
+  inputAdapter: allianzQuoteInputAdapter,
+  quoteAdapter: allianzQuoteOutputAdapter,
 };
+
+function allianzAuthAdapter(input: any) {
+  return input.data.properties.accessToken;
+}
+
+function allianzQuoteInputAdapter(input: any) {
+  return {
+    destinationIds: ["DEU", "ESP"],
+    startDate: "2024-02-24",
+    endDate: "2024-02-26",
+    ageOfAdults: [22, 24],
+    ageOfDependants: [],
+    answeredQuestions: [{ id: "RESID", answer: { id: "Y" } }],
+  };
+}
+
+function allianzQuoteOutputAdapter(input: AllianzQuote) {
+  return input.entities[0].entities.map((entity) => {
+    return entity.properties.price.sellingPrice;
+  });
+}
