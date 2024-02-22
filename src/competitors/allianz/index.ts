@@ -1,25 +1,26 @@
-import axios from "axios";
-import { AllianzQuote } from "./types";
-import { extractQuoteInfo } from "../../index";
-import { competitors } from "../../competitors";
 import { getCompetitorPrices } from "./APIRequest";
+import { AllianzQuote } from "./types";
 
-
+export const countryCodeMap: Record<string, string> = {
+  Indonesia: "IDN",
+  Philippines: "PHL",
+  Turkey: "TUR",
+  "United Arab Emirates": "ARE",
+  "Sri Lanka": "LKA",
+  USA: "USA",
+  France: "FRA",
+};
 
 export const ALLIANZ = {
   requiresAuth: true,
-  requestor: async function(records){
+  requestor: async function (records) {
     console.log("** getCompetitorPrices **");
     let out = await getCompetitorPrices(records);
-
-
-
 
     console.log("out");
     console.log(out);
 
-
-    return out//{};//getCompetitorPrices(records);
+    return out;
   },
   endpoints: {
     auth: {
@@ -54,13 +55,19 @@ function allianzAuthAdapter(input: any) {
   return input.data.properties.accessToken;
 }
 
-function allianzQuoteInputAdapter(input: any) {
-  const quoteInfo = extractQuoteInfo(input);
+function allianzQuoteInputAdapter(record: any[]) {
+  // convert CSV row to Allianz quote input
+  const curDate = new Date();
+  const leadTime = record[5];
+  const duration = record[4];
+  const startDate = new Date(curDate.getTime() + leadTime * 24 * 60 * 60 * 1000);
+  const endDate = new Date(startDate.getTime() + duration * 24 * 60 * 60 * 1000);
+
   return {
-    destinationIds: [quoteInfo.destinationIds],
-    startDate: quoteInfo.startDate,
-    endDate: quoteInfo.endDate,
-    ageOfAdults: quoteInfo.ageOfAdults,
+    destinationIds: [countryCodeMap[record[3]]],
+    startDate,
+    endDate,
+    ageOfAdults: [record[1], record[2]],
     ageOfDependants: [],
     answeredQuestions: [{ id: "RESID", answer: { id: "Y" } }],
   };
@@ -68,9 +75,8 @@ function allianzQuoteInputAdapter(input: any) {
 
 function allianzQuoteOutputAdapter(input: AllianzQuote) {
   return input.entities[0].entities.map((entity) => {
-    return entity.properties.price.sellingPrice;
+    const price = entity.properties.price.sellingPrice;
+    const plan = entity.properties.planName;
+    return { price, plan };
   });
 }
-
-
-
