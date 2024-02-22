@@ -157,9 +157,8 @@ const getDob = (age: number, date = new Date()) => {
 };
 
 export const quoteInputAdapter = async (record: QuoteRecord) => {
-  const curDate = new Date();
-  const startDate = addDays(record.leadTime).toISOString().slice(0, 10);
-  const endDate = addDays(-record.duration).toISOString().slice(0, 10);
+  const startDate = addDays(record.leadTime);
+  const endDate = addDays(record.duration, startDate);
   const destinationCountry = countryCodeMap[record.destination as keyof typeof countryCodeMap];
   const firstTravellerDob = getDob(record.adultTravelerAge1);
   const secondTravellerDob = getDob(record.adultTravelerAge2);
@@ -170,7 +169,14 @@ export const quoteInputAdapter = async (record: QuoteRecord) => {
     { is_main: false, dob: secondTravellerDob, trip_cost: 0 },
   ];
 
-  const quote = await getQuote("AU", "VIC", [destinationCountry], startDate, endDate, applicants);
+  const quote = await getQuote(
+    "AU",
+    "VIC",
+    [destinationCountry],
+    startDate.toISOString().slice(0, 10),
+    endDate.toISOString().slice(0, 10),
+    applicants,
+  );
 
   return quote;
 };
