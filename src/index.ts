@@ -7,10 +7,13 @@ const app = express();
 const port = 3000;
 
 app.use(fileUpload());
+app.use('/static', express.static(__dirname+ '/public'));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+
 
 app.post('/upload', function(req, res) {
     let sampleFile: any;

@@ -10,6 +10,9 @@ export const scrape = async () => {
   const headerRow = rawRecords[0];
   const records = rawRecords.slice(1);
 
+  console.log("records");
+  console.log(records);
+
   let results = await getCompetitorPrices(records);
   results.forEach((r) => {
     console.log("setting prices for:", r[0]);
@@ -33,11 +36,11 @@ export const scrape = async () => {
 };
 
 function setAllianzPrices(records: QuoteRecord[], results) {
-  console.log(results);
+  // console.log(results);
   results.forEach((result) => {
     const id = result.recordId;
     const price = result.prices[0].price;
-    records[id].Allianz = price;
+    records[id-1].Allianz = price;
     console.log(result)
   });
 }

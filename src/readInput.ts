@@ -13,9 +13,15 @@ export const processFile = async () => {
   parser.on("readable", function () {
     let record;
     let id = 0;
+    let first = true;
     while ((record = parser.read()) !== null) {
-      const recordDAO = parseRecord(record, id++);
-      records.push(recordDAO);
+      if(first){
+        first = false;
+      }else{
+        const recordDAO = parseRecord(record, id);
+        records.push(recordDAO);
+        id++;
+      }
     }
   });
   await finished(parser);
@@ -24,6 +30,9 @@ export const processFile = async () => {
 };
 
 function parseRecord(record: any[], id) {
+  console.log("**");
+  console.log(record);
+  console.log(id);
   const [
     plan,
     travellerAge1,

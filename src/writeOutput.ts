@@ -59,6 +59,7 @@ const exampleData: QuoteRecord[] = [
 
 export const writeOutput = async (input: QuoteRecord[] = exampleData) => {
   try {
+    console.log(input);
     const csv = parse(input);
     await fs.writeFileSync("src/output/output.csv", csv);
     console.log("CSV file successfully created");
