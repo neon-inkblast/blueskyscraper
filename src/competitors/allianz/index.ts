@@ -1,4 +1,5 @@
 import { AllianzQuote } from "./types";
+import { extractQuoteInfo } from "../..";
 
 export const ALLIANZ = {
   requiresAuth: true,
@@ -36,11 +37,12 @@ function allianzAuthAdapter(input: any) {
 }
 
 function allianzQuoteInputAdapter(input: any) {
+  const quoteInfo = extractQuoteInfo(input);
   return {
-    destinationIds: ["DEU", "ESP"],
-    startDate: "2024-02-24",
-    endDate: "2024-02-26",
-    ageOfAdults: [22, 24],
+    destinationIds: [quoteInfo.destinationIds],
+    startDate: quoteInfo.startDate,
+    endDate: quoteInfo.endDate,
+    ageOfAdults: quoteInfo.ageOfAdults,
     ageOfDependants: [],
     answeredQuestions: [{ id: "RESID", answer: { id: "Y" } }],
   };
