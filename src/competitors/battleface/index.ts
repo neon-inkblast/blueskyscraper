@@ -32,7 +32,25 @@ type Package = {
 
 type Applicant = { is_main: boolean; dob: string; trip_cost: number };
 
-type DiscountRequest = { affliate: number; applications: Applicant[]; currency: string };
+type DiscountRequest = {
+  start_date: string;
+  end_date: string;
+  deductibles: { excess_fee: number };
+  destinations: string[];
+  deposit_date: string;
+  discounts: { percentage: number };
+  host_country: string;
+  host_country_state: string;
+  packages: {
+    id: number;
+    levels?: { id: number }[];
+    conditions?: { start_date: string; end_date: string }[];
+  }[];
+  product: string;
+  affliate: number;
+  applicants: Applicant[];
+  currency: string;
+};
 
 type Level = { amount: number; detail: string; id: number; level_id: number };
 
@@ -53,7 +71,63 @@ const packagesUrl = (productId: number, hostCountryId: number, hostCountryStateI
   `https://gateway.battleface.com/api/product/${productId}/host-country/${hostCountryId}/host-country-state/${hostCountryStateId}/packages`;
 const quoteDetailsDiscountsUrl = "https://gateway.battleface.com/api/quote/details/discounts";
 
-const destinationCountries = async () => { };
+const getDestinationCountry = async (countryCode: string) => {
+  const destinationCountries =
+    await axios.get<ApiResponse<DestinationCountry[]>>(destinationCountriesUrl);
+  return destinationCountries.data.data.find((dc) => dc.code === countryCode);
+};
+
+const getHostCountryAndProvince = async (countryCode: string, provinceCode: string) => {
+  const hostCountries = await axios.get<ApiResponse<HostCountry[]>>(hostCountriesUrl);
+
+  const country = hostCountries.data.data.find((hc) => hc.code === countryCode);
+
+  const province = country?.states.find((province) => province.code === provinceCode);
+
+  return { country, province };
+};
+
+const getPackages = async (
+  productId: number,
+  hostCountryId: number,
+  hostCountryStateId: number,
+) => {
+  const packages = await axios.get<ApiResponse<Package[]>>(
+    packagesUrl(productId, hostCountryId, hostCountryStateId),
+  );
+
+  return packages.data;
+};
+
+const getQuote = (
+  countryCode: string,
+  provinceCode: string,
+  destinationCountries: string[],
+  startDate: string,
+  endDate: string,
+  applicants: Applicant[],
+) => {
+  // TODO: cache countries
+
+  const destinationCountry = await getDestinationCountry(countryCode);
+  const { country, province } = await getHostCountryAndProvince(countryCode, provinceCode);
+  if (!country || !province) throw new Error("Couldnt get country or province");
+  const packages = await getPackages(1001, country?.id, province?.id);
+
+  return {
+    affliate: 1,
+    host_country: countryCode,
+    host_country_state: provinceCode,
+    start_date: startDate,
+    deductibles: { excess_fee: 100 },
+    end_date: endDate,
+    destinations: destinationCountries,
+    currency: "AUD",
+    applicants,
+    deposit_date: new Date().toISOString().slice(0, 10),
+    packages: packages.data.map((p) => ({ id: p.id })),
+  } satisfies DiscountRequest;
+};
 
 const exampleRequest = async () => {
   const examplePayload = {
@@ -64,8 +138,7 @@ const exampleRequest = async () => {
     affiliate: 1,
     product: "1001",
     host_country: "AU",
-    https://gateway.battleface.com/api/quote/details/discounts
-      host_country_state: "NSW",
+    host_country_state: "NSW",
     currency: "AUD",
     destinations: ["LA"],
     packages: [
@@ -83,7 +156,7 @@ const exampleRequest = async () => {
     ],
     deductibles: { excess_fee: 100 },
     discounts: { percentage: 0 },
-  };
+  } satisfies DiscountRequest;
 
   return axios.post<ApiResponse<DiscountResponse>>(quoteDetailsDiscountsUrl, {
     data: examplePayload,
