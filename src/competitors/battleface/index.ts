@@ -33,6 +33,7 @@ type Package = {
 type Applicant = { is_main: boolean; dob: string; trip_cost: number };
 
 type DiscountRequest = {
+  affiliate: number;
   start_date: string;
   end_date: string;
   deductibles: { excess_fee: number };
@@ -47,7 +48,6 @@ type DiscountRequest = {
     conditions?: { start_date: string; end_date: string }[];
   }[];
   product: string;
-  affliate: number;
   applicants: Applicant[];
   currency: string;
 };
@@ -99,7 +99,7 @@ const getPackages = async (
   return packages.data;
 };
 
-const getQuote = (
+const getQuote = async (
   countryCode: string,
   provinceCode: string,
   destinationCountries: string[],
@@ -115,7 +115,8 @@ const getQuote = (
   const packages = await getPackages(1001, country?.id, province?.id);
 
   return {
-    affliate: 1,
+    affiliate: 1,
+    product: "1001",
     host_country: countryCode,
     host_country_state: provinceCode,
     start_date: startDate,
@@ -124,6 +125,7 @@ const getQuote = (
     destinations: destinationCountries,
     currency: "AUD",
     applicants,
+    discounts: { percentage: 0 },
     deposit_date: new Date().toISOString().slice(0, 10),
     packages: packages.data.map((p) => ({ id: p.id })),
   } satisfies DiscountRequest;
@@ -158,7 +160,5 @@ const exampleRequest = async () => {
     discounts: { percentage: 0 },
   } satisfies DiscountRequest;
 
-  return axios.post<ApiResponse<DiscountResponse>>(quoteDetailsDiscountsUrl, {
-    data: examplePayload,
-  });
+  return axios.post<ApiResponse<DiscountResponse>>(quoteDetailsDiscountsUrl, examplePayload);
 };
