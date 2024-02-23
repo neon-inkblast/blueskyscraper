@@ -52,28 +52,29 @@ function imgAuthAdapter(input: any) {
   }
 
 function imgQuoteInputAdapter(record: any) {
-    // convert CSV row to Allianz quote input
+
     const curDate = new Date();
     const leadTime = record.leadDays;
     const duration = record.duration;
     const startDate = new Date(curDate.getTime() + leadTime * 24 * 60 * 60 * 1000);
     const endDate = new Date(startDate.getTime() + duration * 24 * 60 * 60 * 1000);
-    const birthDay1 = new Date(curDate.getTime() - record.travellerAge1 * 365.25 * 60 * 60 * 1000);
-    const birthDay2 = new Date(curDate.getTime() - record.travellerAge2 * 365.25 * 60 * 60 * 1000);
-  
+    const birthDay1 = new Date(curDate.getTime() - record.travellerAge1 * 365.25 * 24 * 60 * 60 * 1000);
+    const birthDay2 = new Date(curDate.getTime() - record.travellerAge2 * 365.25 * 24 * 60 * 60 * 1000);
+    
+    console.log(birthDay1);
     return {
       "producerNumber": "182036",
-      "productCode": "TCSP",
+      "productCode": "TCSE2",
       "appType": "0621",
       "travelInfo": {
           "startDate": startDate,
           "endDate": endDate,
           "destinations": [
-            countryCodeMap[record.destination]
+            countryCodeMap[record.destination],
           ]
       },
       "residencyCountry": "USA",
-      "residencyState": "AL",
+      "residencyState": "CT",
       "policyInfo": {
           "currencyCode": "USD",
           "paymentFrequency": "Monthly"
@@ -86,7 +87,7 @@ function imgQuoteInputAdapter(record: any) {
                       "firstName": null,
                       "lastName": null,
                       "dateOfBirth": birthDay1,
-                      "citizenship": "CAN",
+                      "citizenship": "USA",
                       "residence": "USA",
                       "gender": "Male",
                       "travelerType": 1,
@@ -120,6 +121,6 @@ function imgQuoteInputAdapter(record: any) {
 
 function imgQuoteOutputAdapter(input: any) {
 
-    return {price: input.totalPremium, plan: 'comprehensive'};
+    return [ {price: input.totalPremium, plan: ''} ];
   }
 

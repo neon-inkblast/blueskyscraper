@@ -10,9 +10,6 @@ export const scrape = async (updateProgress: Function) => {
   const headerRow = rawRecords[0];
   const records = rawRecords.slice(1);
 
-  // console.log("records");
-  // console.log(records);
-
   let maxLength = records.length * Object.keys(competitors).length;
   console.log("maxLength:",maxLength);
   let completed = 1;
@@ -44,7 +41,6 @@ export const scrape = async (updateProgress: Function) => {
 };
 
 function setAllianzPrices(records: QuoteRecord[], results) {
-  // console.log(results);
   results.forEach((result) => {
     if(result != null){
       const id = result.recordId;
@@ -56,5 +52,13 @@ function setAllianzPrices(records: QuoteRecord[], results) {
 }
 
 function setImgPrices(records: QuoteRecord[], results) {
-  console.log(results);
+  results.forEach((result) => {
+    if(result != null){
+      const id = result.recordId;
+      const price = result.prices[0].price;
+      records[id-1].IMG = price;
+      console.log(result)
+    }
+  });
+  //console.log(results);
 }
